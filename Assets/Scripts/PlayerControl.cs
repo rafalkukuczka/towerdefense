@@ -80,7 +80,7 @@ public class PlayerControl : MonoBehaviour
         //RK New Input
         Vector2 movement = playerInput.Player.Move.ReadValue<Vector2>();
         float h = h = movement.x;
-		Debug.Log("Movement..." + Convert.ToString(h));
+		//Debug.Log("Movement..." + Convert.ToString(h));
 			
 		
 
