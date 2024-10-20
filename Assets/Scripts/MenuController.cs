@@ -16,20 +16,20 @@ public class MenuController : MonoBehaviour
 
         if (GameOverScreen.Score > 1000)
         {
-            SetActive("Level2Selector", "Image2", true);
+            SetActive(2, true);
         }
         else
         {
-            SetActive("Level2Selector", "Image2", false);
+            SetActive(2, false);
         }
 
         if (GameOverScreen.Score > 2000)
         {
-            SetActive("Level3Selector", "Image3", true);
+            SetActive(3, true);
         }
         else
         {
-            SetActive("Level3Selector", "Image3", false);
+            SetActive(3, false);
         }
 
     }
@@ -44,10 +44,10 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("Level" + LevelNumber.ToString());
     }
 
-    void SetActive(string levelSelectorName, string imageName, bool state)
+    void SetActive(int levelIdx, bool state)
     {
-        var _image = GameObject.Find(imageName).GetComponent<Image>();
-        var _button = GameObject.Find(levelSelectorName).GetComponent<Button>();
+        var _image = GameObject.Find("Image"+levelIdx).GetComponent<Image>();
+        var _button = GameObject.Find("Level"+levelIdx+"Selector").GetComponent<Button>();
 
         if (state)
         {
