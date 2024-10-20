@@ -14,7 +14,7 @@ public class MenuController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void OnSelect()
+    public void OnSelect()
     {
         if (LevelNumber == 0)
             return;
