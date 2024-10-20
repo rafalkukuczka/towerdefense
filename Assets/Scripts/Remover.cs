@@ -44,9 +44,11 @@ public class Remover : MonoBehaviour
 		yield return new WaitForSeconds(2);
 		// ... and then reload the level.
 		
-		//RK Porting
-		//Application.LoadLevel(Application.loadedLevel);
-        SceneManager.LoadScene("Level");
+
+		//RK Addind Gameover
+		//SceneManager.LoadScene("Level");
+		SceneManager.LoadScene("Gameover");
+
 
 	}
 }
