@@ -434,6 +434,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 485650017}
     m_Modifications:
+    - target: {fileID: 1019459607716995672, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019459607716995672, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019459607716995672, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1314447450140702492, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -534,10 +549,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3266522476624094682, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_Name
+      value: Image2
+      objectReference: {fileID: 0}
     - target: {fileID: 3386336504205943271, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
       propertyPath: m_Name
-      value: LevelSelector
+      value: Level2Selector
       objectReference: {fileID: 0}
     - target: {fileID: 6346551207678267594, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
@@ -663,10 +683,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3266522476624094682, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_Name
+      value: Image3
+      objectReference: {fileID: 0}
     - target: {fileID: 3386336504205943271, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
       propertyPath: m_Name
-      value: LevelSelector
+      value: Level3Selector
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -880,6 +905,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 485650017}
     m_Modifications:
+    - target: {fileID: 873116873940192419, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 873116873940192419, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 873116873940192419, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1314447450140702492, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -980,10 +1020,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3266522476624094682, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_Name
+      value: Image1
+      objectReference: {fileID: 0}
     - target: {fileID: 3386336504205943271, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
       propertyPath: m_Name
-      value: LevelSelector
+      value: Level1Selector
       objectReference: {fileID: 0}
     - target: {fileID: 6346551207678267594, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}

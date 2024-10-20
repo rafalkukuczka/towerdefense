@@ -15,6 +15,15 @@ public class GameOverScreen : MonoBehaviour
             return _score.ToString() + " POINTS";
         }    
     }
+
+    internal static int Score
+    {
+        get
+        {
+            return _score;
+        }
+    }
+
     public static void SetScore(int score)
     {
         _score = score;

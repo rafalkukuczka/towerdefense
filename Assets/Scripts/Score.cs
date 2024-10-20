@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class Score : MonoBehaviour
 {
@@ -9,18 +10,20 @@ public class Score : MonoBehaviour
 	private PlayerControl playerControl;	// Reference to the player control script.
 	private int previousScore = 0;			// The score in the previous frame.
 
-
+	TextMeshProUGUI _scoreText;
 	void Awake ()
 	{
 		// Setting up the reference.
 		playerControl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
+        //_scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
 	}
 
 
 	void Update ()
 	{
 		// Set the score text.
-		//RKguiText.text = "Score: " + score;
+		//RK TODO _scoreText.text = "Score: " + score;
+
 
 		// If the score has changed...
 		if(previousScore != score && playerControl != null)
