@@ -24,4 +24,6 @@ public class GameOverScreen : MonoBehaviour
     {
         _score += v;
     }
+
+
 }

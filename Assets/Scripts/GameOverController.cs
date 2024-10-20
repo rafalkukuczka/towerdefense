@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
@@ -17,6 +18,16 @@ public class GameOverController : MonoBehaviour
     void Update()
     {
         _textMeshPro.text = GameOverScreen.Text;
+    }
+
+    public void Reset()
+    {
+        SceneManager.LoadScene("Level");
+    }
+
+    public void Exit() 
+    {
+        Application.Quit();
     }
 }
  
