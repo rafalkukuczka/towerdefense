@@ -12,7 +12,7 @@ public class Alien : MonoBehaviour
 	public GameObject hundredPointsUI;	// A prefab of 100 that appears when the enemy dies.
 	public float deathSpinMin = -100f;			// A value to give the minimum amount of Torque when dying
 	public float deathSpinMax = 100f;           // A value to give the maximum amount of Torque when dying
-	public float initialForceX = 20f;
+	public float initialForceX = 0f;
 
 
 	private SpriteRenderer ren;			// Reference to the sprite renderer.
@@ -33,7 +33,7 @@ public class Alien : MonoBehaviour
 	    rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(initialForceX, 0f));
+        rigidbody2D.AddForce(new Vector2(initialForceX, 0f));
 
 
     }
@@ -56,7 +56,7 @@ public class Alien : MonoBehaviour
 		}
 
 		// Set the enemy's velocity to moveSpeed in the x direction.
-		GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x * moveSpeed, GetComponent<Rigidbody2D>().velocity.y);	
+		rigidbody2D.velocity = new Vector2(transform.localScale.x * moveSpeed, rigidbody2D.velocity.y);	
 
 		// If the enemy has one hit point left and has a damagedEnemy sprite...
 		if(HP == 1 && damagedEnemy != null)
@@ -69,7 +69,7 @@ public class Alien : MonoBehaviour
 			Death ();
 
         
-		animator.SetBool("walk", Math.Abs(GetComponent<Rigidbody2D>().velocity.x) > 0);
+		animator.SetBool("walk", Math.Abs(rigidbody2D.velocity.x) > 0);
     }
 	
 	public void Hurt()
@@ -100,7 +100,7 @@ public class Alien : MonoBehaviour
 		dead = true;
 
 		// Allow the enemy to rotate and spin it by adding a torque.
-		//RKthis.GetComponent<Rigidbody2D>().constraints. = false;
+		//RKthis.rigitbody2D.constraints. = false;
 		//RKrigidbody2D.AddTorque(Random.Range(deathSpinMin,deathSpinMax));
 
 		// Find all of the colliders on the gameobject and set them all to be triggers.
