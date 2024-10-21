@@ -111,7 +111,6 @@ public class Enemy : MonoBehaviour
 
 		// Instantiate the 100 points prefab at this point.
 		Instantiate(hundredPointsUI, scorePos, Quaternion.identity);
-        GameOverScreen.AddScore(100);
     }
 
 

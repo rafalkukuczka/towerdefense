@@ -28,11 +28,4 @@ public class GameOverScreen : MonoBehaviour
     {
         _score = score;
     }
-
-    internal static void AddScore(int v)
-    {
-        _score += v;
-    }
-
-
 }

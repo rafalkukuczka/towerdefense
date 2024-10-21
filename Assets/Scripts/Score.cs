@@ -15,15 +15,16 @@ public class Score : MonoBehaviour
 	{
 		// Setting up the reference.
 		playerControl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
-        //_scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
+        _scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
 	}
 
 
 	void Update ()
 	{
 		// Set the score text.
-		//RK TODO _scoreText.text = "Score: " + score;
-
+		//RK TODO
+		_scoreText.text = "Score: " + score;
+		GameOverScreen.SetScore(score);
 
 		// If the score has changed...
 		if(previousScore != score && playerControl != null)
