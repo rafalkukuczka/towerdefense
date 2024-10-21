@@ -42,6 +42,8 @@ public class MenuController : MonoBehaviour
         {
             SetActive(4, false);
         }
+>>>>>>>>> Temporary merge branch 2
+
     }
 
     // Update is called once per frame
