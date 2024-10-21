@@ -53,7 +53,19 @@ public class Alien : MonoBehaviour
 				Flip ();
 				break;
 			}
-		}
+
+            // If any of the colliders is an Enemy...
+            if (c.tag == "Enemy")
+            {
+				//Hurt
+				Hurt();
+
+                // ... Flip the enemy and stop checking the other colliders.
+                Flip();
+                break;
+            }
+
+        }
 
 		// Set the enemy's velocity to moveSpeed in the x direction.
 		rigidbody2D.velocity = new Vector2(transform.localScale.x * moveSpeed, rigidbody2D.velocity.y);	
