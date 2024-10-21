@@ -32,6 +32,16 @@ public class MenuController : MonoBehaviour
             SetActive(3, false);
         }
 
+        //RK DEBUG SetActive(4, true);
+        if (GameOverScreenData.Score > 3000)
+        {
+            SetActive(4, true);
+        }
+        else
+        {
+            SetActive(4, false);
+        }
+
     }
 
     // Update is called once per frame
