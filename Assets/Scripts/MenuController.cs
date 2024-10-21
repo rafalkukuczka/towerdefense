@@ -14,7 +14,7 @@ public class MenuController : MonoBehaviour
 
         //SetActive("Level1Selector", "Image1", true);
 
-        if (GameOverScreen.Score > 1000)
+        if (GameOverScreenData.Score > 1000)
         {
             SetActive(2, true);
         }
@@ -23,7 +23,7 @@ public class MenuController : MonoBehaviour
             SetActive(2, false);
         }
 
-        if (GameOverScreen.Score > 2000)
+        if (GameOverScreenData.Score > 2000)
         {
             SetActive(3, true);
         }
