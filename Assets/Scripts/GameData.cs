@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class GameOverScreenData : MonoBehaviour
+public class GameData : MonoBehaviour
 {
     static int _score = 0;
      internal static string Text { 
