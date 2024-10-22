@@ -18,6 +18,6 @@ public class GameOverScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _textMeshPro.text = GameOverScreenData.Text;
+        _textMeshPro.text = GameData.Text;
     }
 }

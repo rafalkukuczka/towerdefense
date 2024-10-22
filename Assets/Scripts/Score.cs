@@ -24,7 +24,7 @@ public class Score : MonoBehaviour
 		// Set the score text.
 		//RK TODO
 		_scoreText.text = "Score: " + score;
-		GameOverScreenData.SetScore(score);
+		GameData.SetScore(score);
 
 		// If the score has changed...
 		if(previousScore != score && playerControl != null)
