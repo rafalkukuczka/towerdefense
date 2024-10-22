@@ -11,10 +11,10 @@ public class MenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //RK TODO Remove
         //SetActive("Level1Selector", "Image1", true);
 
-        if (GameOverScreenData.Score > 1000)
+        if (GameData.Score > 1000)
         {
             SetActive(2, true);
         }
@@ -23,7 +23,7 @@ public class MenuController : MonoBehaviour
             SetActive(2, false);
         }
 
-        if (GameOverScreenData.Score > 2000)
+        if (GameData.Score > 2000)
         {
             SetActive(3, true);
         }
@@ -34,7 +34,7 @@ public class MenuController : MonoBehaviour
 
 
         //RK DEBUG SetActive(4, true);
-        if (GameOverScreenData.Score > 3000)
+        if (GameData.Score > 3000)
         {
             SetActive(4, true);
         }
@@ -42,7 +42,6 @@ public class MenuController : MonoBehaviour
         {
             SetActive(4, false);
         }
->>>>>>>>> Temporary merge branch 2
 
     }
 
@@ -53,7 +52,25 @@ public class MenuController : MonoBehaviour
         if (LevelNumber == 0)
             return;
 
+
+        StartCoroutine(OnClick());
+
+    }
+
+    IEnumerator OnClick() {
+
+        var i = GameObject.Find("Image" + LevelNumber).GetComponent<Image>();
+        i.color = Color.green;
+
+        yield return new WaitForSeconds(1);
+
+        i.color = Color.white;
+
+        yield return new WaitForSeconds(1);
+
         SceneManager.LoadScene("Level" + LevelNumber.ToString());
+
+        yield return null;
     }
 
     void SetActive(int levelIdx, bool state)
