@@ -21,26 +21,25 @@ public class LevelSelectorController : MonoBehaviour
     void Awake()
     {
         _textBox = this.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+
         _image = this.gameObject.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>();
+
         _button = this.gameObject.transform.GetComponent<Button>();
 
         _textBox.text = SceneTitle;
 
-        if (ButtonSprite != null )
-            _image.sprite = ButtonSprite;
-
-        
+        _image.sprite = ButtonSprite;
     }
 
     private void OnValidate()
     {
-        var textBox = this.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI textBox = this.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+
         textBox.text = SceneTitle;
 
-        var image = this.gameObject.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>();
+        UnityEngine.UI.Image image = this.gameObject.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>();
 
-        if (ButtonSprite != null)
-            image.sprite = ButtonSprite;
+        image.sprite = ButtonSprite;
 
 
     }

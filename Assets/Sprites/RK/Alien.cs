@@ -54,17 +54,6 @@ public class Alien : MonoBehaviour
 				break;
 			}
 
-            // If any of the colliders is an Enemy...
-            if (c.tag == "Enemy")
-            {
-				//Hurt
-				Hurt();
-
-                // ... Flip the enemy and stop checking the other colliders.
-                Flip();
-                break;
-            }
-
         }
 
 		// Set the enemy's velocity to moveSpeed in the x direction.
@@ -105,15 +94,15 @@ public class Alien : MonoBehaviour
 		ren.enabled = true;
 		ren.sprite = deadEnemy;
 
-		// Increase the score by 100 points
-		score.score += 100;
+		// Increase the score by 300 points
+    	score.score += 300;
 
 		// Set dead to true.
 		dead = true;
 
 		// Allow the enemy to rotate and spin it by adding a torque.
-		//RKthis.rigitbody2D.constraints. = false;
-		//RKrigidbody2D.AddTorque(Random.Range(deathSpinMin,deathSpinMax));
+		this.rigidbody2D.constraints = new RigidbodyConstraints2D();
+		rigidbody2D.AddTorque(UnityEngine.Random.Range(deathSpinMin,deathSpinMax));
 
 		// Find all of the colliders on the gameobject and set them all to be triggers.
 		Collider2D[] cols = GetComponents<Collider2D>();
@@ -126,15 +115,30 @@ public class Alien : MonoBehaviour
 		int i = UnityEngine.Random.Range(0, deathClips.Length);
 		AudioSource.PlayClipAtPoint(deathClips[i], transform.position);
 
-		// Create a vector that is just above the enemy.
-		Vector3 scorePos;
-		scorePos = transform.position;
-		scorePos.y += 1.5f;
-
-		// Instantiate the 100 points prefab at this point.
-		Instantiate(hundredPointsUI, scorePos, Quaternion.identity);
+		StartCoroutine(ShowPointsUI());
     }
 
+	IEnumerator ShowPointsUI() {
+
+        // Create a vector that is just above the enemy.
+        Vector3 scorePos;
+        scorePos = transform.position;
+        scorePos.y += 1.5f;
+
+        // Instantiate the 3x100 points prefab at this point.
+        Instantiate(hundredPointsUI, scorePos, Quaternion.identity);
+
+        yield return new WaitForSeconds(0.1f);
+
+        Instantiate(hundredPointsUI, scorePos, Quaternion.identity);
+
+        yield return new WaitForSeconds(0.2f);
+
+        Instantiate(hundredPointsUI, scorePos, Quaternion.identity);
+
+        yield return new WaitForSeconds(0.3f);
+
+    }
 
 	public void Flip()
 	{

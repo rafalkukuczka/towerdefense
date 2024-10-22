@@ -37,7 +37,8 @@ public class MenuGridController : MonoBehaviour
             SetActive(3, false);
         }
 
-        //RK DEBUG SetActive(4, true);
+        //RK DEBUG
+        SetActive(3, true);
     }
 
     private void SetActive(int idx, bool isActive)
