@@ -267,13 +267,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479288}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5051740df326c0443ac7ae6c439961ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonSprite: {fileID: 0}
   SceneName: 
+  SceneTitle: 
 --- !u!1001 &280687768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -282,6 +283,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 485650017}
     m_Modifications:
+    - target: {fileID: 307763305077884055, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_text
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1019459607716995672, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
       propertyPath: m_Sprite
@@ -388,6 +394,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2780754412607519025, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780754412607519025, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.69000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780754412607519025, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780754412607519025, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.69000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780754412607519025, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780754412607519025, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 3386336504205943271, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
       propertyPath: m_Name
@@ -397,6 +433,11 @@ PrefabInstance:
         type: 3}
       propertyPath: SceneName
       value: Level4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346551207678267594, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: SceneTitle
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6346551207678267594, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
@@ -670,6 +711,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 485650017}
     m_Modifications:
+    - target: {fileID: 307763305077884055, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_text
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019459607716995672, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bc16422a503ec43cab4ad9ddab02ff7a,
+        type: 3}
     - target: {fileID: 1314447450140702492, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -782,6 +834,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6346551207678267594, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
+      propertyPath: SceneTitle
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346551207678267594, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
       propertyPath: ButtonSprite
       value: 
       objectReference: {fileID: 21300000, guid: bc16422a503ec43cab4ad9ddab02ff7a,
@@ -805,6 +862,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 485650017}
     m_Modifications:
+    - target: {fileID: 307763305077884055, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_text
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1314447450140702492, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -914,6 +976,11 @@ PrefabInstance:
         type: 3}
       propertyPath: SceneName
       value: Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346551207678267594, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: SceneTitle
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6346551207678267594, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
@@ -1132,6 +1199,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 485650017}
     m_Modifications:
+    - target: {fileID: 307763305077884055, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_text
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019459607716995672, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 477311fec091c42bfbc24d168222c093,
+        type: 3}
     - target: {fileID: 1314447450140702492, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1244,6 +1322,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6346551207678267594, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
+      propertyPath: SceneTitle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346551207678267594, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
       propertyPath: LevelNumber
       value: 1
       objectReference: {fileID: 0}
@@ -1251,7 +1334,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ButtonSprite
       value: 
-      objectReference: {fileID: 21300000, guid: bd1989b4e42a0454097f657dfb368bd8,
+      objectReference: {fileID: 21300000, guid: 477311fec091c42bfbc24d168222c093,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
