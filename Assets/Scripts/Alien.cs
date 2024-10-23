@@ -88,6 +88,7 @@ public class Alien : MonoBehaviour
 		foreach(SpriteRenderer s in otherRenderers)
 		{
 			s.enabled = false;
+			s.sortingLayerName = "UI";
 		}
 
 		// Re-enable the main sprite renderer and set it's sprite to the deadEnemy sprite.
