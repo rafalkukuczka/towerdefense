@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
+using System.Runtime.Serialization;
+using UnityEngine.UI;
 
 public class LayBombs : MonoBehaviour
 {
@@ -11,14 +13,19 @@ public class LayBombs : MonoBehaviour
 	public GameObject bomb;				// Prefab of the bomb.
 
 
-	private UnityEngine.UI.Image bombHUD;           // Heads up display of whether the player has a bomb or not.
+	private UnityEngine.UI.Image bombHUDImage;           // Heads up display of whether the player has a bomb or not.
 
 	PlayerActionsExample playerInput;
 
 	void Awake ()
 	{
 		// Setting up the reference.
-		// TODO RKbombHUD = GameObject.Find("ui_bombHUD").guiTexture;
+		// TODO RK
+		var bombHUD = GameObject.Find("ui_bombHUD");
+		if (bombHUD != null)
+		{
+			bombHUDImage = bombHUD.gameObject.GetComponent<Image>();
+		}
 		playerInput = new PlayerActionsExample ();
 	}
 
@@ -44,8 +51,11 @@ public class LayBombs : MonoBehaviour
 			Instantiate(bomb, transform.position, transform.rotation);
 		}
 
-		// The bomb heads up display should be enabled if the player has bombs, other it should be disabled.
-		// TODO RK bombHUD.enabled = bombCount > 0;
+		// if exists  The bomb heads up display should be enabled if the player has bombs, other it should be disabled.
+		if (bombHUDImage != null)
+		{
+			bombHUDImage.enabled = bombCount > 0;
+		}
 	}
 
 
