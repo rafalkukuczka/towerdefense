@@ -15,6 +15,8 @@ public class MenuGridController : MonoBehaviour
         SetActive(3, GameData.IsThirdScreenVisible());
 
         SetActive(4, GameData.IsForthScreenVisible());
+        
+        SetActive(5, GameData.IsFifthScreenVisible());
 
     }
 

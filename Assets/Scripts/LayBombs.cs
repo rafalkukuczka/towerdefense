@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.InputSystem;
 using System.Runtime.Serialization;
 using UnityEngine.UI;
+using UnityEngine.Playables;
 
 public class LayBombs : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class LayBombs : MonoBehaviour
         //RK New input
         //if(Input.GetButtonDown("Fire2") && !bombLaid && bombCount > 0)
         //RK DEBUG unlimited bombs if (playerInput.Player.Fire2.triggered)
-        if (GameData.IsUnlimimtedBombs() || (playerInput.Player.Fire2.triggered && !bombLaid && bombCount > 0))
+        if ((playerInput.Player.Fire2.triggered && ((GameData.IsUnlimimtedBombs() ) || !bombLaid && bombCount > 0)))
         {
 			// Decrement the number of bombs.
 			bombCount--;

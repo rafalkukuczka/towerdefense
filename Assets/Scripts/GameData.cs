@@ -49,9 +49,15 @@ public class GameData : MonoBehaviour
         return Score > 3000;
     }
 
-    public static bool IsUnlimimtedBombs()
+    public static bool IsFifthScreenVisible()
     {
         return true;
+        return Score > 4000;
+    }
+
+    public static bool IsUnlimimtedBombs()
+    {
+        return false;
     }
 
     public static bool IsSlowMotion()
