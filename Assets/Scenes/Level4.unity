@@ -3298,45 +3298,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 587848075256483145, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
+    - target: {fileID: 461048202232820897, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
         type: 3}
-      propertyPath: HP
-      value: 4
+      propertyPath: m_LocalScale.x
+      value: 0.22894233
       objectReference: {fileID: 0}
-    - target: {fileID: 587848075256483145, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
+    - target: {fileID: 461048202232820897, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
         type: 3}
-      propertyPath: moveSpeed
-      value: 0.5
+      propertyPath: m_LocalScale.y
+      value: 0.22894233
       objectReference: {fileID: 0}
-    - target: {fileID: 587848075256483145, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
+    - target: {fileID: 461048202232820897, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
         type: 3}
-      propertyPath: deathClips.Array.size
-      value: 3
+      propertyPath: m_LocalScale.z
+      value: 0.22894233
       objectReference: {fileID: 0}
-    - target: {fileID: 587848075256483145, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
+    - target: {fileID: 1119548908992099756, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
         type: 3}
-      propertyPath: deathClips.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 039514349165244c6a43be5c3070d14b, type: 3}
-    - target: {fileID: 587848075256483145, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
-        type: 3}
-      propertyPath: deathClips.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 85020549641fa452d9136ac2fc852efd, type: 3}
-    - target: {fileID: 587848075256483145, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
-        type: 3}
-      propertyPath: deathClips.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 2e20b5071623f44cf9c72acf016de4b6, type: 3}
-    - target: {fileID: 1372002355687240011, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6499549745398271722, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
+      propertyPath: lengthInSec
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6816854900540890549, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
         type: 3}
@@ -3388,50 +3368,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7449186070511853289, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7449186070511853289, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7449186070511853289, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1783731295
-      objectReference: {fileID: 0}
     - target: {fileID: 7721282836030965211, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
         type: 3}
       propertyPath: m_Name
       value: Alien
-      objectReference: {fileID: 0}
-    - target: {fileID: 7721282836030965211, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8566071329303929629, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8566071329303929629, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1783731295
-      objectReference: {fileID: 0}
-    - target: {fileID: 8656410692188281266, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8656410692188281266, guid: a673c3a1b11de8d45a5a05eb00e67dbd,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1783731295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

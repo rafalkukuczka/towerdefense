@@ -81,8 +81,14 @@ public class Alien : MonoBehaviour
 	
 	void Death()
 	{
-		// Find all of the sprite renderers on this object and it's children.
-		SpriteRenderer[] otherRenderers = GetComponentsInChildren<SpriteRenderer>();
+		//Start Particles 
+		var particleSystemTransform = this.gameObject.transform.Find("particleSystem");
+        var particleSystem = particleSystemTransform.GetComponent<ParticleSystem>();
+        particleSystem.Play();
+
+
+        // Find all of the sprite renderers on this object and it's children.
+        SpriteRenderer[] otherRenderers = GetComponentsInChildren<SpriteRenderer>();
 
 		// Disable all of them sprite renderers.
 		foreach(SpriteRenderer s in otherRenderers)
