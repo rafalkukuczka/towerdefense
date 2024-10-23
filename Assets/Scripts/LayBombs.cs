@@ -36,7 +36,7 @@ public class LayBombs : MonoBehaviour
         //RK New input
         //if(Input.GetButtonDown("Fire2") && !bombLaid && bombCount > 0)
         //RK DEBUG unlimited bombs if (playerInput.Player.Fire2.triggered)
-        if (playerInput.Player.Fire2.triggered && !bombLaid && bombCount > 0)
+        if (GameData.IsUnlimimtedBombs() || (playerInput.Player.Fire2.triggered && !bombLaid && bombCount > 0))
         {
 			// Decrement the number of bombs.
 			bombCount--;

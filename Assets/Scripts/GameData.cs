@@ -4,6 +4,7 @@ using System.Collections.Generic;
 //using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class GameData : MonoBehaviour
@@ -24,8 +25,38 @@ public class GameData : MonoBehaviour
         }
     }
 
+    #region DEBUG Hooks
     public static void SetScore(int score)
     {
         _score = score;
     }
+
+    public static bool IsSecondScreenVisible()
+    {
+        return true;
+        return Score > 1000;
+    }
+
+    public static bool IsThirdScreenVisible()
+    {
+        return true;
+        return Score > 2000;
+    }
+
+    public static bool IsForthScreenVisible()
+    {
+        return true;
+        return Score > 3000;
+    }
+
+    public static bool IsUnlimimtedBombs()
+    {
+        return true;
+    }
+
+    public static bool IsSlowMotion()
+    {
+        return false;
+    } 
+    #endregion
 }

@@ -28,9 +28,11 @@ public class Pauser : MonoBehaviour {
 			
 			Time.timeScale = 0;
 
-            //RK Debug slow motion
-            Time.timeScale = 0.1f;
-            Time.fixedDeltaTime = 0.02F * Time.timeScale;
+            if (GameData.IsSlowMotion())
+            {
+                Time.timeScale = 0.1f;
+                Time.fixedDeltaTime = 0.02F * Time.timeScale;
+            }
         }
 		else
 			Time.timeScale = 1;

@@ -8,42 +8,19 @@ public class MenuGridController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetActive(0, true); 
+        SetActive(1, true);
 
-        if (GameData.Score > 1000)
-        {
-            SetActive(1, true);
-        }
-        else
-        {
-            SetActive(1, false);
-        }
+        SetActive(2, GameData.IsSecondScreenVisible());
 
-        if (GameData.Score > 2000)
-        {
-            SetActive(2, true);
-        }
-        else
-        {
-            SetActive(2, false);
-        }
+        SetActive(3, GameData.IsThirdScreenVisible());
 
-        if (GameData.Score > 3000)
-        {
-            SetActive(3, true);
-        }
-        else
-        {
-            SetActive(3, false);
-        }
+        SetActive(4, GameData.IsForthScreenVisible());
 
-        //RK DEBUG
-        SetActive(3, true);
     }
 
     private void SetActive(int idx, bool isActive)
     {
-        var levelSelector = this.transform.GetChild(idx).GetComponent<LevelSelectorController>();
+        var levelSelector = this.transform.GetChild(idx-1).GetComponent<LevelSelectorController>();
         levelSelector.SetActive(isActive);
     }
 
