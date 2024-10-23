@@ -23,8 +23,15 @@ public class Pauser : MonoBehaviour {
 			paused = !paused;
 		}
 
-		if(paused)
+		if (paused)
+		{
+			
 			Time.timeScale = 0;
+
+            //RK Debug slow motion
+            Time.timeScale = 0.1f;
+            Time.fixedDeltaTime = 0.02F * Time.timeScale;
+        }
 		else
 			Time.timeScale = 1;
 	}
