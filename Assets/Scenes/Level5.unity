@@ -2672,6 +2672,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 53.87121
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6aa187bc6339843479c03fdfd71404a3, type: 3}
+      propertyPath: lockingTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 6aa187bc6339843479c03fdfd71404a3, type: 3}
       propertyPath: maxSpeed
       value: 7
