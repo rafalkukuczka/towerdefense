@@ -23,11 +23,9 @@ public class LayBombs : MonoBehaviour
 		// Setting up the reference.
 		// TODO RK
 		var bombHUD = GameObject.Find("ui_bombHUD");
-		if (bombHUD != null)
-		{
-			bombHUDImage = bombHUD.gameObject.GetComponent<Image>();
-		}
-		playerInput = new PlayerActionsExample ();
+		bombHUDImage = bombHUD.gameObject.GetComponent<Image>();
+
+        playerInput = new PlayerActionsExample ();
 	}
 
 
@@ -52,12 +50,9 @@ public class LayBombs : MonoBehaviour
 			Instantiate(bomb, transform.position, transform.rotation);
 		}
 
-		// if exists  The bomb heads up display should be enabled if the player has bombs, other it should be disabled.
-		if (bombHUDImage != null)
-		{
-			bombHUDImage.enabled = bombCount > 0;
-		}
-	}
+        //The bomb heads up display should be enabled if the player has bombs, other it should be disabled.
+        bombHUDImage.enabled = bombCount > 0;
+    }
 
 
     private void OnEnable()

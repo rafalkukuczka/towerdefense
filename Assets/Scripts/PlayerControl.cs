@@ -58,7 +58,7 @@ public class PlayerControl : MonoBehaviour
 
         //RK New input
         //if(Input.GetButtonDown("Jump") && grounded)
-        if (playerInput != null && playerInput.Player.Jump.triggered)
+        if (playerInput.Player.Jump.triggered)
         {
 			//Debug.Log("Triggered...");
             jump = true;
@@ -110,8 +110,6 @@ public class PlayerControl : MonoBehaviour
 		// If the player should jump...
 		if(jump)
 		{
-            Debug.Log("Jump1: " + jump);
-
             // Set the Jump animator trigger parameter.
             anim.SetTrigger("Jump");
 
@@ -125,8 +123,6 @@ public class PlayerControl : MonoBehaviour
 			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
 			jump = false;
 		}
-
-		Debug.Log("Jump2: " + jump);
 
     }
 
