@@ -5,7 +5,7 @@ using System;
 public class Alien : MonoBehaviour
 {
 	public float moveSpeed = 2f;		// The speed the enemy moves at.
-	public int HP = 2;					// How many times the enemy can be hit before it dies.
+	public int HP = 4;					// How many times the enemy can be hit before it dies.
 	public Sprite deadEnemy;			// A sprite of the enemy when it's dead.
 	public Sprite damagedEnemy;			// An optional sprite of the enemy when it's damaged.
 	public AudioClip[] deathClips;		// An array of audioclips that can play when the enemy dies.
@@ -24,6 +24,8 @@ public class Alien : MonoBehaviour
     private new Rigidbody2D rigidbody2D;    // RK Reference to the RigidBody
 	private Animator animator;
 
+	private int originalHealthPoints;
+
 	void Awake()
 	{
 		// Setting up the references.
@@ -35,7 +37,7 @@ public class Alien : MonoBehaviour
 
         rigidbody2D.AddForce(new Vector2(initialForceX, 0f));
 
-
+		originalHealthPoints = HP;
     }
 
     void FixedUpdate ()
@@ -134,18 +136,13 @@ public class Alien : MonoBehaviour
         scorePos = transform.position;
         scorePos.y += 1.5f;
 
-        // Instantiate the 3x100 points prefab at this point.
-        Instantiate(hundredPointsUI, scorePos, Quaternion.identity);
 
-        yield return new WaitForSeconds(0.1f);
-
-        Instantiate(hundredPointsUI, scorePos, Quaternion.identity);
-
-        yield return new WaitForSeconds(0.2f);
-
-        Instantiate(hundredPointsUI, scorePos, Quaternion.identity);
-
-        yield return new WaitForSeconds(0.3f);
+		// Instantiate the 3x100 points prefab at this point.
+		int healthPoints = originalHealthPoints;
+		while(healthPoints-- > 0) { 
+			Instantiate(hundredPointsUI, scorePos, Quaternion.identity);
+			yield return new WaitForSeconds(0.1f);
+        }
 
     }
 
