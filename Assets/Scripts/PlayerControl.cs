@@ -107,9 +107,8 @@ public class PlayerControl : MonoBehaviour
 			// ... flip the player.
 			Flip();
 
-        // If the player should jump 
-
-        if (jump)
+		// If the player should jump...
+		if(jump)
 		{
             // Set the Jump animator trigger parameter.
             anim.SetTrigger("Jump");
