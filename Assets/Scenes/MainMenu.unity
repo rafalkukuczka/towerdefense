@@ -320,6 +320,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1314447450140702492, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.98092085
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314447450140702492, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0809045
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314447450140702492, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0809045
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314447450140702492, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -427,7 +442,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ButtonSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3c09f0885cb77844faa1d462e66d28b8,
+      objectReference: {fileID: 21300000, guid: fa10dab328cb1d446a2909586e9b77d2,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
