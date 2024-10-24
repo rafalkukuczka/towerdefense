@@ -18,7 +18,7 @@ public class LayBombs : MonoBehaviour
 
 	PlayerActionsExample playerInput;
 
-	void Awake ()
+	void Start ()
 	{
 		// Setting up the reference.
 		// TODO RK
