@@ -276,7 +276,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3c09f0885cb77844faa1d462e66d28b8,
+      objectReference: {fileID: 21300000, guid: fa10dab328cb1d446a2909586e9b77d2,
         type: 3}
     - target: {fileID: 1314447450140702492, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
@@ -321,7 +321,7 @@ PrefabInstance:
     - target: {fileID: 1314447450140702492, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.98092085
+      value: 0.8828288
       objectReference: {fileID: 0}
     - target: {fileID: 1314447450140702492, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
@@ -1004,6 +1004,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2780754412607519025, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780754412607519025, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3386336504205943271, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
       propertyPath: m_Name
@@ -1177,13 +1187,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2780754412607519025, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6.4327593
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780754412607519025, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.213212
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780754412607519025, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.9284024
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780754412607519025, guid: 53059540ecc70ef40b6a9e1aaab402e4,
+        type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 61
+      value: 181
       objectReference: {fileID: 0}
     - target: {fileID: 2780754412607519025, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 3386336504205943271, guid: 53059540ecc70ef40b6a9e1aaab402e4,
         type: 3}
@@ -1204,7 +1229,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ButtonSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3c09f0885cb77844faa1d462e66d28b8,
+      objectReference: {fileID: 21300000, guid: c52d8caddd1761b47848555fece4db51,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
