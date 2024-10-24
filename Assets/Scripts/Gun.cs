@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
@@ -12,12 +12,18 @@ public class Gun : MonoBehaviour
 
 	PlayerActionsExample playerInput;
 
+	private bool lockShooting = false;      //loxk/unloxk ahooting
+	public int ammoAmount = 12;             //Amount of amomnition //RK TODO Move to constants
+    public int lockingTime = 5;             //Amount of amomnition //RK TODO Move to constants
+	private int currentAmmo;          //Current ammo 
 	void Awake()
 	{
 		// Setting up the references.
 		anim = transform.root.gameObject.GetComponent<Animator>();
 		playerCtrl = transform.root.GetComponent<PlayerControl>();
 		playerInput = new PlayerActionsExample();
+
+		currentAmmo = ammoAmount;
 	}
 
 
@@ -26,11 +32,11 @@ public class Gun : MonoBehaviour
 		// If the fire button is pressed...
 		//RK New Input
 		//if(Input.GetButtonDown("Fire1"))
-		if (playerInput.Player.Fire1.triggered)
+		if (playerInput.Player.Fire1.triggered && !lockShooting)
 			{
 			// ... set the animator Shoot trigger parameter and play the audioclip.
 			anim.SetTrigger("Shoot");
-			//RKaudio.Play();
+			//RK TODO audio.Play();
 
 			// If the player is facing right...
 			if(playerCtrl.facingRight)
@@ -45,7 +51,28 @@ public class Gun : MonoBehaviour
 				Rigidbody2D bulletInstance = Instantiate(rocket, transform.position, Quaternion.Euler(new Vector3(0,0,180f))) as Rigidbody2D;
 				bulletInstance.velocity = new Vector2(-speed, 0);
 			}
+
+			currentAmmo--;
+			if (currentAmmo == 0)
+				StartCoroutine(LockShooting());
 		}
+	}
+
+	IEnumerator LockShooting()
+	{
+		lockShooting = true;
+
+		//Debug.Log("Lock shooting for 5 sec ....");
+
+		yield return new WaitForSeconds(lockingTime); 
+
+        lockShooting = false;
+
+		currentAmmo = ammoAmount;
+
+        //Debug.Log("..unlocking!");
+
+        yield return null;
 	}
 
 
