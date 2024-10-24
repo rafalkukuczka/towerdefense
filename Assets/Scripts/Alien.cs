@@ -104,7 +104,7 @@ public class Alien : MonoBehaviour
 		ren.sprite = deadEnemy;
 
 		// Increase the score by 300 points
-    	score.score += 300;
+    	score.score += 100*HP;
 
 		// Set dead to true.
 		dead = true;
