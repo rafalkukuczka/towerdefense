@@ -38,12 +38,14 @@ public class PlayerControl : MonoBehaviour
 
     //RK New input
     PlayerActionsExample playerInput;
+	Rigidbody2D rigidBody2D;
     void Awake()
 	{
 		// Setting up references.
 		groundCheck = transform.Find("groundCheck");
 		anim = GetComponent<Animator>();
         playerInput = new PlayerActionsExample();
+		rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
 
@@ -68,6 +70,7 @@ public class PlayerControl : MonoBehaviour
 
 	void FixedUpdate ()
 	{
+		//RK TODO Investigate below
         // Cache the horizontal input.
         //float h = Input.GetAxis("Horizontal");
         //var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -79,24 +82,21 @@ public class PlayerControl : MonoBehaviour
 
         //RK New Input
         Vector2 movement = playerInput.Player.Move.ReadValue<Vector2>();
-        float h = h = movement.x;
+        float h = movement.x;
 		//Debug.Log("Movement..." + Convert.ToString(h));
 			
-		
-
-        
         // The Speed animator parameter is set to the absolute value of the horizontal input.
         anim.SetFloat("Speed", Mathf.Abs(h));
 
 		// If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
-		if(h * GetComponent<Rigidbody2D>().velocity.x < maxSpeed)
+		if(h * rigidBody2D.velocity.x < maxSpeed)
 			// ... add a force to the player.
-			GetComponent<Rigidbody2D>().AddForce(Vector2.right * h * moveForce);
+			rigidBody2D.AddForce(Vector2.right * h * moveForce);
 
 		// If the player's horizontal velocity is greater than the maxSpeed...
-		if(Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) > maxSpeed)
+		if(Mathf.Abs(rigidBody2D.velocity.x) > maxSpeed)
 			// ... set the player's velocity to the maxSpeed in the x axis.
-			GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+			rigidBody2D.velocity = new Vector2(Mathf.Sign(rigidBody2D.velocity.x) * maxSpeed, rigidBody2D.velocity.y);
 
 		// If the input is moving the player right and the player is facing left...
 		if(h > 0 && !facingRight)
@@ -110,20 +110,25 @@ public class PlayerControl : MonoBehaviour
 		// If the player should jump...
 		if(jump)
 		{
-			// Set the Jump animator trigger parameter.
-			anim.SetTrigger("Jump");
+            Debug.Log("Jump1: " + jump);
+
+            // Set the Jump animator trigger parameter.
+            anim.SetTrigger("Jump");
 
 			// Play a random jump audio clip.
 			int i = UnityEngine.Random.Range(0, jumpClips.Length);
 			AudioSource.PlayClipAtPoint(jumpClips[i], transform.position);
 
 			// Add a vertical force to the player.
-			GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
-
+			rigidBody2D.AddForce(new Vector2(0f, jumpForce));
+			
 			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
 			jump = false;
 		}
-	}
+
+		Debug.Log("Jump2: " + jump);
+
+    }
 
     private void OnEnable()
     {
