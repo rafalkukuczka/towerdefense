@@ -14,10 +14,11 @@ public class PlayerControl : MonoBehaviour
 	[HideInInspector]
 	public bool facingRight = true;			// For determining which way the player is currently facing.
 	[HideInInspector]
-	public bool jump = false;				// Condition for whether the player should jump.
+	public bool jump100Percents = false;    // Condition for whether the player should jump for first time.
+	public bool jump50Percents = false;     // Condition for whether the player should jump for sec time.
+    int jumped50PercentTimes = 0;
 
-
-	public float moveForce = 365f;			// Amount of force added to move the player left and right.
+    public float moveForce = 365f;			// Amount of force added to move the player left and right.
 	public float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
 	public AudioClip[] jumpClips;			// Array of clips for when the player jumps.
 	public float jumpForce = 1000f;			// Amount of force added when the player jumps.
@@ -56,13 +57,30 @@ public class PlayerControl : MonoBehaviour
 
         // If the jump button is pressed and the player is grounded then the player should jump.
 
+
         //RK New input
         //if(Input.GetButtonDown("Jump") && grounded)
-        if (playerInput.Player.Jump.triggered && grounded)
+        //RK +two times jumping
+        if (playerInput.Player.Jump.triggered)
         {
-			//Debug.Log("Triggered...");
-            jump = true;
+            if (grounded)
+            {
+                //Debug.Log("Triggered 100...");
+                jump100Percents = true;
+            }
+            else 
+            {
+                if (jumped50PercentTimes == 0)
+                {
+                    //Debug.Log("Triggered 50...");
+                    jump50Percents = true;
+                    jumped50PercentTimes++;
+                }
+            }
         }
+
+        if (grounded)
+            jumped50PercentTimes = 0;
 
         Swipe();
 	}
@@ -107,8 +125,8 @@ public class PlayerControl : MonoBehaviour
 			// ... flip the player.
 			Flip();
 
-		// If the player should jump...
-		if(jump)
+		// If the player should jump for first time...100% of power
+		if(jump100Percents)
 		{
             // Set the Jump animator trigger parameter.
             anim.SetTrigger("Jump");
@@ -121,8 +139,25 @@ public class PlayerControl : MonoBehaviour
 			rigidBody2D.AddForce(new Vector2(0f, jumpForce));
 			
 			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
-			jump = false;
+			jump100Percents = false;
 		}
+
+        // If the player should jump for sec time...50% of power
+        if (jump50Percents)
+        {
+            // Set the Jump animator trigger parameter.
+            anim.SetTrigger("Jump");
+
+            // Play a random jump audio clip.
+            int i = UnityEngine.Random.Range(0, jumpClips.Length);
+            AudioSource.PlayClipAtPoint(jumpClips[i], transform.position);
+
+            // Add a vertical force to the player.
+            rigidBody2D.AddForce(new Vector2(0f, (50f / 100f) * jumpForce));
+
+            // Make sure the player can't jump again until the jump conditions from Update are satisfied.
+            jump50Percents = false;
+        }
 
     }
 
