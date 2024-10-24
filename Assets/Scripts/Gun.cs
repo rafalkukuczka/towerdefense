@@ -14,7 +14,7 @@ public class Gun : MonoBehaviour
 
 	private bool lockShooting = false;      //loxk/unloxk ahooting
 	public int ammoAmount = 12;             //Amount of amomnition //RK TODO Move to constants
-    public int lockingTime = 5;             //Amount of amomnition //RK TODO Move to constants
+    public int lockingTime = 1;             //Amount of amomnition //RK TODO Move to constants
 	private int currentAmmo;          //Current ammo 
 	void Awake()
 	{
