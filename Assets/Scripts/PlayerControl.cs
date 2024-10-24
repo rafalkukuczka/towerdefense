@@ -12,11 +12,10 @@ using System;
 public class PlayerControl : MonoBehaviour
 {
 	[HideInInspector]
-	public bool facingRight = true;			// For determining which way the player is currently facing.
-
+	public bool facingRight = true;			// For determining which way the player is currently facing
 	private bool jump100Percents = false;    // Condition for whether the player should jump for first time.
 	private bool jump50Percents = false;     // Condition for whether the player should jump for sec time.
-    private int jumped50PercentTimes = 0;    //how many times jumped, 0 indexed 0 ==1, 1==2 etc.
+    private int  jumped50PercentTimes = 0;    //how many times jumped, 0 indexed 0 ==1, 1==2 etc.
 
     public float moveForce = 365f;			// Amount of force added to move the player left and right.
 	public float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
