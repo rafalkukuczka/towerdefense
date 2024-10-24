@@ -107,8 +107,11 @@ public class PlayerControl : MonoBehaviour
 			// ... flip the player.
 			Flip();
 
-		// If the player should jump...
-		if(jump)
+        // If the player should jump if grounded ...
+        // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
+        var grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+
+        if (jump && grounded)
 		{
             // Set the Jump animator trigger parameter.
             anim.SetTrigger("Jump");
