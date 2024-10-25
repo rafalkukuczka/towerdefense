@@ -9,6 +9,11 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class GameData : MonoBehaviour
 {
+    public static class Const {
+        public static int Rockets = 24;
+        public static int InitialRockets = 12;
+    }
+
     static int _score = 0;
     static int _currentNumberOfRockets = 0;
     internal static string Text { 
