@@ -30,8 +30,9 @@ public class PickupSpawner : MonoBehaviour
 
 	public IEnumerator DeliverPickup()
 	{
-		// Wait for the delivery delay.
-		yield return new WaitForSeconds(pickupDeliveryTime);
+        Debug.Log("PickupSpawner.DeliverPickup called...waiting " + pickupDeliveryTime + " sec.");
+        // Wait for the delivery delay.
+        yield return new WaitForSeconds(pickupDeliveryTime);
 
 		// Create a random x coordinate for the delivery in the drop range.
 		float dropPosX = Random.Range(dropRangeLeft, dropRangeRight);
@@ -39,20 +40,37 @@ public class PickupSpawner : MonoBehaviour
 		// Create a position with the random x coordinate.
 		Vector3 dropPos = new Vector3(dropPosX, 15f, 1f);
 
-		// If the player's health is above the high threshold...
-		if(playerHealth.health >= highHealthThreshold)
+        //RK debug
+        //Instantiate(pickups[2], dropPos, Quaternion.identity);
+        //yield return null;
+
+        Debug.Log("PickupSpawner.DeliverPickup trying to spawn...");
+
+        // If the player's health is above the high threshold...
+        if (playerHealth.health >= highHealthThreshold)
+		{
+			Debug.Log("Spawning Bomb...");
 			// ... instantiate a bomb pickup at the drop position.
 			Instantiate(pickups[0], dropPos, Quaternion.identity);
+		}
 		// Otherwise if the player's health is below the low threshold...
-		else if(playerHealth.health <= lowHealthThreshold)
-			// ... instantiate a health pickup at the drop position.
-			Instantiate(pickups[1], dropPos, Quaternion.identity);
+		else if (playerHealth.health <= lowHealthThreshold)
+		{
+            Debug.Log("Spawning Health...");
+            // ... instantiate a health pickup at the drop position.
+            Instantiate(pickups[1], dropPos, Quaternion.identity);
+		}
 		// Otherwise...
 		else
 		{
-			// ... instantiate a random pickup at the drop position.
-			int pickupIndex = Random.Range(0, pickups.Length);
-			Instantiate(pickups[pickupIndex], dropPos, Quaternion.identity);
+            
+            // ... instantiate a random pickup at the drop position.
+            int pickupIndex = Random.Range(0, pickups.Length);
+            Debug.Log("Spawning Random..." + pickupIndex);
+            Instantiate(pickups[pickupIndex], dropPos, Quaternion.identity);
 		}
-	}
+
+        Debug.Log("PickupSpawner.DeliverPickup done.");
+
+    }
 }
