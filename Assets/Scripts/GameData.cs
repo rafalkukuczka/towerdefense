@@ -44,6 +44,8 @@ public class GameData : MonoBehaviour
         }
     }
 
+    public static bool EnableBombHUD { get; internal set; }
+
 
     #region DEBUG Hooks
     public static bool IsSecondScreenVisible()
