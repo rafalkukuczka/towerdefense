@@ -23,14 +23,15 @@ public class GameData : MonoBehaviour
         {
             return _score;
         }
+
+        set
+        {
+            _score = value;
+        }
     }
+
 
     #region DEBUG Hooks
-    public static void SetScore(int score)
-    {
-        _score = score;
-    }
-
     public static bool IsSecondScreenVisible()
     {
         return true;

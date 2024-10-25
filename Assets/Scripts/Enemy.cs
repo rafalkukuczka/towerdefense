@@ -16,19 +16,18 @@ public class Enemy : MonoBehaviour
 	private SpriteRenderer ren;			// Reference to the sprite renderer.
 	private Transform frontCheck;		// Reference to the position of the gameobject used for checking if something is in front.
 	private bool dead = false;			// Whether or not the enemy is dead.
-	private Score score;                // Reference to the Score script.
 
-	//RK Porting private Rigidbody2D rigidbody2D;    // RK Reference to the RigidBody
-	//private new Rigidbody2D rigidbody2D;    // RK Reference to the RigidBody
-	private int originalHealthPoints;
+
+    //RK Porting private Rigidbody2D rigidbody2D;    // RK Reference to the RigidBody
+    //private new Rigidbody2D rigidbody2D;    // RK Reference to the RigidBody
+    private int originalHealthPoints;
 
     void Awake()
 	{
 		// Setting up the references.
 		ren = transform.Find("body").GetComponent<SpriteRenderer>();
 		frontCheck = transform.Find("frontCheck").transform;
-		score = GameObject.Find("Score").GetComponent<Score>();
-		//RK rigidbody2D = GetComponent<Rigidbody2D>();
+		//RK TODO rigidbody2D = GetComponent<Rigidbody2D>();
 
 		originalHealthPoints = HP;
 
@@ -87,10 +86,10 @@ public class Enemy : MonoBehaviour
 		ren.sprite = deadEnemy;
 
 		// Increase the score by 100 points
-		score.score += 100*HP;
+        GameData.Score += 100 * originalHealthPoints;
 
-		// Set dead to true.
-		dead = true;
+        // Set dead to true.
+        dead = true;
 
 		// Allow the enemy to rotate and spin it by adding a torque.
 		//RKthis.GetComponent<Rigidbody2D>().constraints. = false;
