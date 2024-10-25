@@ -113,47 +113,42 @@ public class RocketPickup : MonoBehaviour
         }
     }
 
-        void OnTriggerEnter2D (Collider2D other)
+	void OnTriggerEnter2D (Collider2D other)
 	{
 		UnityEngine.Debug.Log("RocketPickup.OnTriggerEnter2D..." +  other.tag);
 		// If the player enters the trigger zone...
-		try
 		{
-			if (other.tag == "Player")
-			{
-				// Get a reference to the player health script.
-				// PlayerHelth playerRockets = other.GetComponent<PlayerHelth>();
+            // Get a reference to the player health script.
+            // PlayerHelth playerRockets = other.GetComponent<PlayerHelth>();
 
-				PlayerRocket playerRockets = other.GetComponent<PlayerRocket>();
+            PlayerRocket playerRockets = other.GetComponent<PlayerRocket>();
 
-				//// Increasse the player's health by the health bonus but clamp it at 100.
-				//playerHealth.health += healthBonus;
-				//playerHealth.health = Mathf.Clamp(playerHealth.health, 0f, 100f);
+			//// Increasse the player's health by the health bonus but clamp it at 100.
+			//playerHealth.health += healthBonus;
+			//playerHealth.health = Mathf.Clamp(playerHealth.health, 0f, 100f);
 
-				//// Update the health bar.
-				//playerHealth.UpdateHealthBar();
-				playerRockets.UpdateRockets(Rockets); //RK TODO Bug - called  twice duno why
+			//// Update the health bar.
+			//playerHealth.UpdateHealthBar();
+			playerRockets.UpdateRockets(Rockets); //RK TODO Bug - called  twice duno why
 
-				// Trigger a new delivery.
-				pickupSpawner.StartCoroutine(pickupSpawner.DeliverPickup());
+            // Trigger a new delivery.
+            pickupSpawner.StartCoroutine(pickupSpawner.DeliverPickup());
 
-				// Play the collection sound.
-				AudioSource.PlayClipAtPoint(collect, transform.position);
+			// Play the collection sound.
 
-				// Destroy the crate.
-				Destroy(transform.root.gameObject);
-			}
-			// Otherwise if the crate hits the ground...
-			else if (other.tag == "ground" && !landed)
-			{
-				// ... set the Land animator trigger parameter.
-				anim.SetTrigger("Land");
-
-				transform.parent = null;
-				gameObject.AddComponent<Rigidbody2D>();
-				landed = true;
-			}
+			// Destroy the crate.
+			Destroy(transform.root.gameObject);
 		}
+		// Otherwise if the crate hits the ground...
+		{
+			// ... set the Land animator trigger parameter.
+			anim.SetTrigger("Land");
+
+			transform.parent = null;
+			gameObject.AddComponent<Rigidbody2D>();
+			landed = true;	
+		}
+	}
 		finally
 		{
             UnityEngine.Debug.Log("RocketPickup.OnTriggerEnter2D...done");

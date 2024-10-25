@@ -53,7 +53,7 @@ public class PlayerRocket: MonoBehaviour
     }
 
 
-    public void UpdateRockets(int rockets)
+	public void UpdateRockets(int rockets)
 	{
 		gun.CurrentAmmo += rockets; 
 	}
