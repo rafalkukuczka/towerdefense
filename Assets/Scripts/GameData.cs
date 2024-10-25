@@ -10,7 +10,8 @@ using UnityEngine.SocialPlatforms.Impl;
 public class GameData : MonoBehaviour
 {
     static int _score = 0;
-     internal static string Text { 
+    static int _currentNumberOfRockets = 0;
+    internal static string Text { 
         get
         {
             return _score.ToString() + " POINTS";
@@ -27,6 +28,19 @@ public class GameData : MonoBehaviour
         set
         {
             _score = value;
+        }
+    }
+
+    internal static int CurrentNumberOfRockets
+    {
+        get
+        {
+            return _currentNumberOfRockets;
+        }
+
+        set
+        {
+            _currentNumberOfRockets = value;
         }
     }
 

@@ -55,8 +55,12 @@ public class Gun : MonoBehaviour
 			currentAmmo--;
 			if (currentAmmo == 0)
 				StartCoroutine(LockShooting());
+
+			
 		}
-	}
+
+        GameData.CurrentNumberOfRockets = currentAmmo;
+    }
 
 	IEnumerator LockShooting()
 	{
