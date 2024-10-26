@@ -35,7 +35,6 @@ public class MenuGridController : MonoBehaviour
 
     public void Buy()
     {
-        GameData.Score = 0;
         SceneManager.LoadScene("ShopMenu");
     }
 
