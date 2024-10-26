@@ -71,7 +71,7 @@ public class Gun : MonoBehaviour
 		}
 
 	
-        GameData.CurrentNumberOfRockets = currentRocketAmount;
+		GameData.CurrentNumberOfRockets = currentRocketAmount;
     }
 
 	IEnumerator LockShooting()

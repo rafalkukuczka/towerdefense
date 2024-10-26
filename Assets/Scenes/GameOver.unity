@@ -705,7 +705,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1403059402}
         m_TargetAssemblyTypeName: GameOverController, Assembly-CSharp
-        m_MethodName: Reset
+        m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

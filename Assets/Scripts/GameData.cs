@@ -22,7 +22,10 @@ public class GameData : MonoBehaviour
 
     static GameData()
     {
-        Score = 800;
+        Score = 9000;
+
+        GameData.CurrentNumberOfRockets = GameData.Const.InitialNumberOfRockets;
+        GameData.BombCount = GameData.Const.InitialNumberOfBombs;
     }
     internal static string Text {
         get

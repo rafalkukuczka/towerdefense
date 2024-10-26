@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
-    public void Reset()
+    public void Menu()
     {
-        GameData.Score = 0;
         SceneManager.LoadScene("MainMenu");
     }
 
