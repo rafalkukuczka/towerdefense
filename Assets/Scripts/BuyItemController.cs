@@ -13,7 +13,7 @@ public class BuyItemController : MonoBehaviour
 
     public string ItemName;
     public int ItemPrice;
-    public Color disabledColor = Color.gray; //RK TODO Introduce in LevelSelector
+    public Color disabledColor = Color.gray; 
 
     Button _button;
     UnityEngine.UI.Image _image;

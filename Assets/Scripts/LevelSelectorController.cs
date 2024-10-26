@@ -13,7 +13,7 @@ public class LevelSelectorController : MonoBehaviour
 
     public string SceneName;
     public string SceneTitle;
-
+    public Color disabledColor = Color.gray;
     Button _button;
     UnityEngine.UI.Image _image;
     TextMeshProUGUI _textBox;
@@ -53,7 +53,7 @@ public class LevelSelectorController : MonoBehaviour
 
     IEnumerator OnClick() {
 
-        _image.color = Color.green;
+        _image.color = disabledColor;
 
         yield return new WaitForSeconds(1);
 
