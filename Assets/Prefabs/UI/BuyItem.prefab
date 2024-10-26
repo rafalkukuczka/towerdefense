@@ -226,6 +226,10 @@ MonoBehaviour:
   ItemName: Health
   ItemPrice: 1000
   disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  OnClicked:
+    m_PersistentCalls:
+      m_Calls: []
+    NewState: 
 --- !u!1 &8234959329302632159
 GameObject:
   m_ObjectHideFlags: 0

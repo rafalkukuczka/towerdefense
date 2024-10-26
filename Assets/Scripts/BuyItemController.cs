@@ -1,19 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static System.Net.Mime.MediaTypeNames;
 
+[Serializable] public class StringEvent : UnityEvent<string> {
+    public string NewState;
+}
+
 [ExecuteAlways]
 public class BuyItemController : MonoBehaviour
 {
-    public Sprite ButtonSprite;
+    [SerializeField] public Sprite ButtonSprite;
 
-    public string ItemName;
-    public int ItemPrice;
-    public Color disabledColor = Color.gray; 
+    [SerializeField] public string ItemName;
+    [SerializeField] public int ItemPrice;
+    [SerializeField] public Color disabledColor = Color.gray;
+    [SerializeField] public StringEvent OnClicked;
 
     Button _button;
     UnityEngine.UI.Image _image;
@@ -50,11 +58,21 @@ public class BuyItemController : MonoBehaviour
 
     public void OnSelect()
     {
-        StartCoroutine(OnClick());
+        UnityEngine.Debug.Log("BuyItemController.OnSelect..." + ItemName);
+
+        StartCoroutine(FireOnClicked());
     }
 
-    IEnumerator OnClick()
+    IEnumerator FireOnClicked()
     {
+        UnityEngine.Debug.Log("BuyItemController.FireOnClicked..." + ItemName + "!");
+
+        if (OnClicked == null)
+            yield break;
+
+        OnClicked.NewState = ItemName;
+
+        OnClicked.Invoke(OnClicked.NewState);
 
         _image.color = disabledColor;
 
@@ -71,7 +89,6 @@ public class BuyItemController : MonoBehaviour
 
     public void SetActive(bool state)
     {
-
 
         if (state)
         {

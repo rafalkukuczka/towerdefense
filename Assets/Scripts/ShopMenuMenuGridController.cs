@@ -8,20 +8,23 @@ public class ShopMenuMenuGridController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetActive(1, true);  //RK TODO Make BuyMenuItems function
+        SetActive(1, GameData.IsRocketVisible());  
 
-        SetActive(2, GameData.IsSecondScreenVisible());
+        SetActive(2, GameData.IsBombVisible());
 
-        SetActive(3, GameData.IsThirdScreenVisible());
-
-        
-
+        SetActive(3, GameData.IsHealthVisible());
     }
 
     private void SetActive(int idx, bool isActive)
     {
         var levelSelector = this.transform.GetChild(idx-1).GetComponent<BuyItemController>();
         levelSelector.SetActive(isActive);
+    }
+
+    public void OnClicked(string itemName)
+    {
+        Debug.Log("ShopMenuMenuGridController.OnClicked..." + itemName +"!!!");
+        //StartCoroutine(OnClick());
     }
 
     // Update is called once per frame

@@ -16,11 +16,11 @@ public class GameData : MonoBehaviour
 
     static int _score = 0;
     static int _currentNumberOfRockets = 0;
-    internal static string Text { 
+    internal static string Text {
         get
         {
             return _score.ToString() + " POINTS";
-        }    
+        }
     }
 
     internal static int Score
@@ -52,7 +52,33 @@ public class GameData : MonoBehaviour
     public static bool EnableBombHUD { get; internal set; }
 
 
-    #region DEBUG Hooks
+    public int ExtraRockets { get; set; }
+
+    public bool IsExtraBombEnabled { get; set; }
+
+    public bool IsExtraHelpEnabled { get; set; }
+
+    #region Shoping Hooks
+    public static bool IsRocketVisible()
+    {
+        return true;
+        return Score > 400;
+    }
+    public static bool IsBombVisible()
+    {
+        return true;
+        return Score > 500;
+    }
+
+    public static bool IsHealthVisible()
+    {
+        return true;
+        return Score > 400;
+    }
+    #endregion
+
+
+    #region Menu Hooks
     public static bool IsSecondScreenVisible()
     {
         return true;
