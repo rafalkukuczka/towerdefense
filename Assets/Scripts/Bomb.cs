@@ -11,7 +11,7 @@ public class Bomb : MonoBehaviour
 	public GameObject explosion;			// Prefab of explosion effect.
 
 
-	private LayBombs layBombs;				// Reference to the player's LayBombs script.
+	private PlayerLayBombs layBombs;				// Reference to the player's LayBombs script.
 	private PickupSpawner pickupSpawner;	// Reference to the PickupSpawner script.
 	private ParticleSystem explosionFX;		// Reference to the particle system of the explosion effect.
 
@@ -22,7 +22,7 @@ public class Bomb : MonoBehaviour
 		explosionFX = GameObject.FindGameObjectWithTag("ExplosionFX").GetComponent<ParticleSystem>();
 		pickupSpawner = GameObject.Find("pickupManager").GetComponent<PickupSpawner>();
 		if(GameObject.FindGameObjectWithTag("Player"))
-			layBombs = GameObject.FindGameObjectWithTag("Player").GetComponent<LayBombs>();
+			layBombs = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLayBombs>();
 	}
 
 	void Start ()

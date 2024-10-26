@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using UnityEngine.UI;
 using UnityEngine.Playables;
 
-public class LayBombs : MonoBehaviour
+public class PlayerLayBombs : MonoBehaviour
 {
 	[HideInInspector]
 	public bool bombLaid = false;		// Whether or not a bomb has currently been laid.
