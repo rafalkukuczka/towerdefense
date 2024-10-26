@@ -55,23 +55,15 @@ public class RocketPickup : MonoBehaviour
             if (other.tag == "Player")
             {
                 // Get a reference to the player health script.
-                // PlayerHelth playerRockets = other.GetComponent<PlayerHelth>();
-
                 PlayerRocket playerRockets = other.GetComponent<PlayerRocket>();
 
-                //// Increasse the player's health by the health bonus but clamp it at 100.
-                //playerHealth.health += healthBonus;
-                //playerHealth.health = Mathf.Clamp(playerHealth.health, 0f, 100f);
-
-                //// Update the health bar.
-                //playerHealth.UpdateHealthBar();
                 playerRockets.UpdateRockets(Rockets); //RK TODO Bug - called  twice duno why
 
                 // Trigger a new delivery.
                 pickupSpawner.StartCoroutine(pickupSpawner.DeliverPickup());
 
                 // Play the collection sound.
-
+                // RK TODO Add audio
                 // Destroy the crate.
                 Destroy(transform.root.gameObject);
             }
