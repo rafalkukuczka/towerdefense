@@ -48,7 +48,7 @@ public class RocketPickup : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        UnityEngine.Debug.Log("RocketPickup.OnTriggerEnter2D..." + other.tag);
+        //UnityEngine.Debug.Log("RocketPickup.OnTriggerEnter2D..." + other.tag);
         try
         {
             // If the player enters the trigger zone...
@@ -80,7 +80,7 @@ public class RocketPickup : MonoBehaviour
         }
         finally
         {
-            UnityEngine.Debug.Log("RocketPickup.OnTriggerEnter2D...done");
+            //UnityEngine.Debug.Log("RocketPickup.OnTriggerEnter2D...done");
         }
     }
 
