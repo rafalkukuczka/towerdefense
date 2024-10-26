@@ -63,7 +63,7 @@ public class RocketPickup : MonoBehaviour
                 pickupSpawner.StartCoroutine(pickupSpawner.DeliverPickup());
 
                 // Play the collection sound.
-                // RK TODO Add audio
+                AudioSource.PlayClipAtPoint(collect, transform.position);
                 // Destroy the crate.
                 Destroy(transform.root.gameObject);
             }

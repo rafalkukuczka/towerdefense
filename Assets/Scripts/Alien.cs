@@ -86,9 +86,6 @@ public class Alien : MonoBehaviour
         var particleSystem = particleSystemTransform.GetComponent<ParticleSystem>();
         particleSystem.Play();
 
-
-
-
         // Find all of the sprite renderers on this object and it's children.
         SpriteRenderer[] otherRenderers = GetComponentsInChildren<SpriteRenderer>();
 
