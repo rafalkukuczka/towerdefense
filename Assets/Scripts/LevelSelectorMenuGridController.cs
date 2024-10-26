@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuGridController : MonoBehaviour
 {
@@ -10,13 +11,13 @@ public class MenuGridController : MonoBehaviour
     {
         SetActive(1, true);
 
-        SetActive(2, GameData.IsSecondScreenVisible());
+        SetActive(2, GameData.IsSecondLevelVisible());
 
-        SetActive(3, GameData.IsThirdScreenVisible());
+        SetActive(3, GameData.IsThirdLevelVisible());
 
-        SetActive(4, GameData.IsForthScreenVisible());
+        SetActive(4, GameData.IsForthLevelVisible());
         
-        SetActive(5, GameData.IsFifthScreenVisible());
+        SetActive(5, GameData.IsFifthLevelVisible());
 
     }
 
@@ -30,5 +31,17 @@ public class MenuGridController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Buy()
+    {
+        GameData.Score = 0;
+        SceneManager.LoadScene("ShopMenu");
+    }
+
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

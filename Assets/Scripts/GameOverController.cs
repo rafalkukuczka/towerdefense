@@ -6,12 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    
-
     public void Reset()
     {
+        GameData.Score = 0;
         SceneManager.LoadScene("MainMenu");
     }
 

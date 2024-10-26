@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RocketPickup : MonoBehaviour
 {
-    public int Rockets = GameData.Const.Rockets; //How many rockets in one crate
+    public int Rockets = GameData.Const.RocketsInCrate; //How many rockets in one crate
     public AudioClip collect;               // The sound of the crate being collected.
 
 

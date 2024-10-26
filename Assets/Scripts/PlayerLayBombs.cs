@@ -9,7 +9,7 @@ public class PlayerLayBombs : MonoBehaviour
 {
 	[HideInInspector]
 	public bool bombLaid = false;		// Whether or not a bomb has currently been laid.
-	public int bombCount = 0;			// How many bombs the player has.
+	public int bombCount = GameData.BombCount;			// How many bombs the player has.
 	public AudioClip bombsAway;			// Sound for when the player lays a bomb.
 	public GameObject bomb;				// Prefab of the bomb.
 
@@ -46,7 +46,7 @@ public class PlayerLayBombs : MonoBehaviour
 		}
 
         //The bomb heads up display should be enabled if the player has bombs, other it should be disabled.
-        GameData.EnableBombHUD = bombCount > 0;
+        GameData.BombCount = bombCount;
     }
 
 

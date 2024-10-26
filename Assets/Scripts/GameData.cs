@@ -10,8 +10,10 @@ using UnityEngine.SocialPlatforms.Impl;
 public class GameData : MonoBehaviour
 {
     public static class Const {
-        public static int Rockets = 24;
-        public static int InitialRockets = 12;
+        public static int RocketsInCrate = 24;
+        public static int InitialNumberOfRockets = 12;
+        public static int InitialNumberOfBombs = 0;
+        public static int InitialTotalPayments = 0;
     }
 
     static int _score = 0;
@@ -36,73 +38,72 @@ public class GameData : MonoBehaviour
         }
     }
 
+    internal static bool WasShoped { get; set; }
+
     internal static int CurrentNumberOfRockets
     {
         get
         {
+            //Debug.Break();
             return _currentNumberOfRockets;
         }
 
         set
         {
+            //Debug.Break();
             _currentNumberOfRockets = value;
         }
     }
 
-    public static bool EnableBombHUD { get; internal set; }
-
-
-    public int ExtraRockets { get; set; }
-
-    public bool IsExtraBombEnabled { get; set; }
-
-    public bool IsExtraHelpEnabled { get; set; }
+    public static int BombCount { get; internal set; }
 
     #region Shoping Hooks
-    public static bool IsRocketVisible()
+    public static bool IsRocketBuyItemVisible()
     {
         return true;
         return Score > 400;
     }
-    public static bool IsBombVisible()
+    public static bool IsBombBuyItemVisible()
     {
         return true;
         return Score > 500;
     }
 
-    public static bool IsHealthVisible()
+    public static bool IsHealthBuyItemVisible()
     {
         return true;
         return Score > 400;
     }
     #endregion
 
-
     #region Menu Hooks
-    public static bool IsSecondScreenVisible()
+    public static bool IsSecondLevelVisible()
     {
         return true;
         return Score > 1000;
     }
 
-    public static bool IsThirdScreenVisible()
+    public static bool IsThirdLevelVisible()
     {
         return true;
         return Score > 2000;
     }
 
-    public static bool IsForthScreenVisible()
+    public static bool IsForthLevelVisible()
     {
         return true;
         return Score > 3000;
     }
 
-    public static bool IsFifthScreenVisible()
+    public static bool IsFifthLevelVisible()
     {
         return true;
         return Score > 4000;
     }
 
+    #endregion
+
+    #region DEBUG Hooks
     public static bool IsUnlimimtedBombs()
     {
         return false;

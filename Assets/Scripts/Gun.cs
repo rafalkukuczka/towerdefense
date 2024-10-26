@@ -14,11 +14,13 @@ public class Gun : MonoBehaviour
 	PlayerActionsExample playerInput;
 
 	private bool lockShooting = false;      //loxk/unloxk ahooting
-	public int iinitialRocketsAmount = GameData.Const.InitialRockets; //Amount of amomnition 
+	public int initialRocketsAmount;        //Amount of amomnition 
     public int lockingTime = 1;             //Amount of amomnition //RK TODO Move to constants
-	private int currentRocketAmount;          //Current ammo 
+	private int currentRocketAmount;        //Current ammo 
 
-	public int CurrentAmmo
+
+	
+	public int CurrentRocketsAmount
 	{
 		get { return currentRocketAmount; }
 		set { currentRocketAmount = value; }
@@ -31,7 +33,9 @@ public class Gun : MonoBehaviour
 		playerCtrl = transform.root.GetComponent<PlayerControl>();
 		playerInput = new PlayerActionsExample();
 
-		currentRocketAmount = iinitialRocketsAmount;
+		initialRocketsAmount = GameData.CurrentNumberOfRockets;
+
+        currentRocketAmount = initialRocketsAmount;
     }
     void Update ()
 	{
@@ -66,6 +70,7 @@ public class Gun : MonoBehaviour
 			
 		}
 
+	
         GameData.CurrentNumberOfRockets = currentRocketAmount;
     }
 
@@ -79,7 +84,7 @@ public class Gun : MonoBehaviour
 
         lockShooting = false;
 
-		currentRocketAmount = iinitialRocketsAmount;
+		currentRocketAmount = initialRocketsAmount;
 
         //Debug.Log("..unlocking!");
 
