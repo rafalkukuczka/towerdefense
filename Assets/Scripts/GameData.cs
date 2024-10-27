@@ -14,8 +14,13 @@ public class GameData : MonoBehaviour
         public static int InitialNumberOfRockets = 12;
         public static int InitialNumberOfBombs = 0;
         public static int InitialTotalPayments = 0;
+        public static int InitialExtraSpeed = 10;
+        public static int InitialExtraForce = 10;
+        internal static int ExtraForceTimeout = 10;
+        internal static int ExtraSpeedTimeout = 12;
 
         public static int InitialScore = 9000;
+        
     }
 
     static int _score = 0;
@@ -71,6 +76,9 @@ public class GameData : MonoBehaviour
         set { bombCount = value; }
     }
 
+    public static int ExtraSpeedTimeout { get; internal set; }
+    public static int ExtraForceTimeout { get; internal set; }
+
 
     #region Shoping Hooks
     public static bool IsRocketBuyItemVisible()
@@ -82,9 +90,14 @@ public class GameData : MonoBehaviour
         return Score > 500;
     }
 
-    public static bool IsHealthBuyItemVisible()
+    public static bool IsForceBuytemVisible()
     {
         return Score > 1000;
+    }
+
+    internal static bool IsSpeedBuytemVisible()
+    {
+        return Score > 2000; //RK TODO Move to const
     }
     #endregion
 
@@ -126,6 +139,8 @@ public class GameData : MonoBehaviour
     {
         GameData.CurrentNumberOfRockets = GameData.Const.InitialNumberOfRockets;
         GameData.BombCount = GameData.Const.InitialNumberOfBombs;
+        GameData.ExtraForceTimeout = GameData.Const.InitialExtraForce;
+        GameData.ExtraSpeedTimeout = GameData.Const.InitialExtraSpeed;
 
         if (updateScore ) {
             GameData.Score = GameData.Score = GameData.Const.InitialScore;
@@ -133,5 +148,7 @@ public class GameData : MonoBehaviour
 
         WasShoped = false;
     }
+
+
     #endregion
 }

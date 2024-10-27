@@ -9,11 +9,14 @@ public class ShopMenuMenuGridController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Activate buy items
         SetActive(1, GameData.IsRocketBuyItemVisible());  
 
         SetActive(2, GameData.IsBombBuyItemVisible());
 
-        SetActive(3, GameData.IsHealthBuyItemVisible());
+        SetActive(3, GameData.IsForceBuytemVisible());
+
+        SetActive(4, GameData.IsSpeedBuytemVisible());
 
     }
 
@@ -40,11 +43,17 @@ public class ShopMenuMenuGridController : MonoBehaviour
             GameData.BombCount += 1;
 
         }
-        else if (itemName == "Health")
+        else if (itemName == "Force")
         {
             GameData.Score -= 1000;
-            //GameData.he += 1; //RK Todo implement Health
+            GameData.ExtraForceTimeout += GameData.Const.ExtraForceTimeout;
         }
+        else if (itemName == "Speed")
+        {
+            GameData.Score -= 2000;
+            GameData.ExtraSpeedTimeout += GameData.Const.ExtraSpeedTimeout; 
+        }
+        
         else
         {
             throw new ArgumentException();
