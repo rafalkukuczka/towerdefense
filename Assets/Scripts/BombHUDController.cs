@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RocketHUDController : MonoBehaviour
+public class BombHUDController : MonoBehaviour
 {
     // Start is called before the first frame update
     public string Text;
@@ -13,13 +13,13 @@ public class RocketHUDController : MonoBehaviour
     private TextMeshProUGUI _backgroundText;
     private TextMeshProUGUI _text;
     private Image _Image;
-
     void Awake()
     {
         _Image = this.transform.GetComponent<Image>();
+
         _backgroundText = gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         _text = gameObject.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
-       
+
     }
 
     // Update is called once per frame
@@ -35,10 +35,14 @@ public class RocketHUDController : MonoBehaviour
 
     private void OnValidate()
     {
+        //Donot use Visibity becausee then will not visible in design
+
         var backgroundText = gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         var text = gameObject.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
 
         backgroundText.text = Text;
         text.text = Text;
+
+        
     }
 }
