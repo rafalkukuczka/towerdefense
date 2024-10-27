@@ -77,7 +77,7 @@ public class Bomb : MonoBehaviour
 		{
 			// Check if it has a rigidbody (since there is only one per enemy, on the parent).
 			Rigidbody2D rb = en.GetComponent<Rigidbody2D>();
-			if(rb != null && (rb.tag == "Enemy" || rb.tag == "Alien"))
+			if(rb != null && rb.tag == "Enemy")
 			{
 				// Find the Enemy script and set the enemy's health to zero.
 				rb.gameObject.GetComponent<Enemy>().HP = 0;
@@ -89,7 +89,20 @@ public class Bomb : MonoBehaviour
 				Vector3 force = deltaPos.normalized * bombForce* forceMultiplikator;
 				rb.AddForce(force);
 			}
-		}
+
+            if (rb != null && rb.tag == "Alien")
+            {
+                // Find the Enemy script and set the enemy's health to zero.
+                rb.gameObject.GetComponent<Alien>().HP = 0;
+
+                // Find a vector from the bomb to the enemy.
+                Vector3 deltaPos = rb.transform.position - transform.position;
+
+                // Apply a force in this direction with a magnitude of bombForce.
+                Vector3 force = deltaPos.normalized * bombForce * forceMultiplikator;
+                rb.AddForce(force);
+            }
+        }
 
 		// Set the explosion effect's position to the bomb's position and play the particle system.
 		explosionFX.transform.position = transform.position;
