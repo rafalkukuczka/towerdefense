@@ -58,14 +58,16 @@ public class BuyItemController : MonoBehaviour
 
     public void OnSelect()
     {
-        UnityEngine.Debug.Log("BuyItemController.OnSelect..." + ItemName);
+        //RK TODO Remove 
+        //UnityEngine.Debug.Log("BuyItemController.OnSelect..." + ItemName);
 
         StartCoroutine(FireOnClicked());
     }
 
     IEnumerator FireOnClicked()
     {
-        UnityEngine.Debug.Log("BuyItemController.FireOnClicked..." + ItemName + "!");
+        //RK TODO Remove
+        //UnityEngine.Debug.Log("BuyItemController.FireOnClicked..." + ItemName + "!");
 
         if (OnClicked == null)
             yield break;
