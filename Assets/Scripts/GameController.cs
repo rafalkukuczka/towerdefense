@@ -10,13 +10,14 @@ public class GameController : MonoBehaviour
 {
     ScoreTextController _scoreTextController;
     RocketHUDController _rocketHUDController;
-    Image _bombHUDImage;
-    // Start is called before the first frame update
+    BombHUDController _bombHUDController;
     void Awake()
     {
         _scoreTextController = GameObject.Find("ui_ScoreText").GetComponent<ScoreTextController>();
+        
         _rocketHUDController = GameObject.Find("ui_rocketHUD").GetComponent<RocketHUDController>();
-        _bombHUDImage = GameObject.Find("ui_bombHUD").GetComponent<Image>();
+
+        _bombHUDController = GameObject.Find("ui_bombHUD").GetComponent<BombHUDController>();
 
         //initial
         if (!GameData.WasShoped)
@@ -31,7 +32,11 @@ public class GameController : MonoBehaviour
         
     //Sync Data with controls
     _scoreTextController.Text = GameData.Score.ToString();
+
     _rocketHUDController.Text = GameData.CurrentNumberOfRockets.ToString();
-    _bombHUDImage.enabled = GameData.BombCount>0;
+    _rocketHUDController.Visible = GameData.CurrentNumberOfRockets>0;
+
+    _bombHUDController.Text = GameData.BombCount.ToString();
+    _bombHUDController.Visible = GameData.BombCount > 0;
     }
 }
