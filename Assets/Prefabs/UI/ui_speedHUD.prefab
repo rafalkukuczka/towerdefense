@@ -200,7 +200,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4d416d6e69e19604fa564f058cf35abf, type: 2}
   m_sharedMaterial: {fileID: 4486031062946342276, guid: 4d416d6e69e19604fa564f058cf35abf,
@@ -281,7 +280,6 @@ GameObject:
   - component: {fileID: 5105346976590593540}
   - component: {fileID: 5853063876800812562}
   - component: {fileID: 4648701071961976116}
-  - component: {fileID: 3049178837588116422}
   m_Layer: 5
   m_Name: ui_speedHUD
   m_TagString: Untagged
@@ -338,7 +336,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dc5a2d853696f964386e3d057e9d8c63, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -348,7 +345,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3049178837588116422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -357,8 +353,5 @@ MonoBehaviour:
   m_GameObject: {fileID: 6509173582981789615}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d5aa8bb9612d14f9f97b3c4b81a580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: 
-  Visible: 0
