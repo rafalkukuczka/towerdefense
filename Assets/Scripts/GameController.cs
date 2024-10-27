@@ -21,8 +21,7 @@ public class GameController : MonoBehaviour
         //initial
         if (!GameData.WasShoped)
         {
-            GameData.CurrentNumberOfRockets = GameData.Const.InitialNumberOfRockets;
-            GameData.BombCount = GameData.Const.InitialNumberOfBombs;
+            GameData.Init(false);
         }
     }
 

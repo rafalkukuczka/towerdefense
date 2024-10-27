@@ -14,6 +14,8 @@ public class GameData : MonoBehaviour
         public static int InitialNumberOfRockets = 12;
         public static int InitialNumberOfBombs = 0;
         public static int InitialTotalPayments = 0;
+
+        public static int InitialScore = 9000;
     }
 
     static int _score = 0;
@@ -22,10 +24,8 @@ public class GameData : MonoBehaviour
 
     static GameData()
     {
-        Score = 9000;
-
-        GameData.CurrentNumberOfRockets = GameData.Const.InitialNumberOfRockets;
-        GameData.BombCount = GameData.Const.InitialNumberOfBombs;
+        
+        Init(true);
     }
     internal static string Text {
         get
@@ -119,6 +119,18 @@ public class GameData : MonoBehaviour
     public static bool IsSlowMotion()
     {
         return false;
-    } 
+    }
+
+    internal static void Init(bool updateScore)
+    {
+        GameData.CurrentNumberOfRockets = GameData.Const.InitialNumberOfRockets;
+        GameData.BombCount = GameData.Const.InitialNumberOfBombs;
+
+        if (updateScore ) {
+            GameData.Score = GameData.Score = GameData.Const.InitialScore;
+        }
+
+        WasShoped = false;
+    }
     #endregion
 }

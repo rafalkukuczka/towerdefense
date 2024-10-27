@@ -8,6 +8,7 @@ public class GameOverController : MonoBehaviour
 {
     public void Menu()
     {
+        GameData.Init(true);
         SceneManager.LoadScene("MainMenu");
     }
 
