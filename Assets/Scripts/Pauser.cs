@@ -1,32 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
-public class Pauser : MonoBehaviour {
-	private bool paused = false;
+public class Pauser : MonoBehaviour
+{
+    private int paused = 0;
 
 
-	//RK New Input
-	PlayerActionsExample playerInput;
+    //RK New Input
+    PlayerActionsExample playerInput;
 
     private void Awake()
     {
-		playerInput = new PlayerActionsExample();
+        playerInput = new PlayerActionsExample();
     }
 
 
     // Update is called once per frame
-    void Update () {
-		//RK New input
-		//if(Input.GetKeyUp(KeyCode.P))
-		if (playerInput.Player.Pause.triggered)
-		{
-			paused = !paused;
-		}
+    void Update()
+    {
+        //RK New input
+        //if(Input.GetKeyUp(KeyCode.P))
+        if (playerInput.Player.Pause.triggered)
+        {
+            paused++;
 
-		if (paused)
-		{
-			
-			Time.timeScale = 0;
+        }
+
+        if (paused % 3 == 0)
+        {
+            Time.timeScale = 1;
+        }
+        else if (paused % 3 == 1)
+        {
+            Time.timeScale = 0;
 
             if (GameData.IsSlowMotion())
             {
@@ -34,17 +41,20 @@ public class Pauser : MonoBehaviour {
                 Time.fixedDeltaTime = 0.02F * Time.timeScale;
             }
         }
-		else
-			Time.timeScale = 1;
-	}
-
-    private void OnEnable()
-    {
-        playerInput.Enable();
+        else if (paused % 3 == 2)
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
-    private void OnDisable()
-    {
-        playerInput.Disable();
+        private void OnEnable()
+        {
+            playerInput.Enable();
+        }
+
+        private void OnDisable()
+        {
+            playerInput.Disable();
+        }
     }
-}

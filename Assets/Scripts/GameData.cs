@@ -28,6 +28,7 @@ public class GameData : MonoBehaviour
         Init(true);
     }
     internal static string Text {
+
         get
         {
             return _score.ToString() + " POINTS";
