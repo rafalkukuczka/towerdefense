@@ -3,7 +3,9 @@ using System.Collections;
 
 public class Bomb : MonoBehaviour
 {
-	public float bombRadius = 10f;			// Radius within which enemies are killed.
+	public float bombRadius = 10f;          // Radius within which enemies are killed.
+	public int forceMultiplikator;
+
 	public float bombForce = 100f;			// Force that enemies are thrown from the blast.
 	public AudioClip boom;					// Audioclip of explosion.
 	public AudioClip fuse;					// Audioclip of fuse.
@@ -49,22 +51,33 @@ public class Bomb : MonoBehaviour
 
 	public void Explode()
 	{
-		
-		// The player is now free to lay bombs when he has them.
-		layBombs.bombLaid = false;
+
+        // Switch superpower on :)...
+        if (GameData.ExtraForceTimeout > 0)
+        {
+            forceMultiplikator = 3;
+            Debug.Log("-->--> adding extra force...");
+        }
+        else
+        {
+            forceMultiplikator = 1;
+        }
+
+        // The player is now free to lay bombs when he has them.
+        layBombs.bombLaid = false;
 
 		// Make the pickup spawner start to deliver a new pickup.
 		pickupSpawner.StartCoroutine(pickupSpawner.DeliverPickup());
 
 		// Find all the colliders on the Enemies layer within the bombRadius.
-		Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, bombRadius, 1 << LayerMask.NameToLayer("Enemies"));
+		Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, bombRadius * forceMultiplikator, 1 << LayerMask.NameToLayer("Enemies"));
 
 		// For each collider...
 		foreach(Collider2D en in enemies)
 		{
 			// Check if it has a rigidbody (since there is only one per enemy, on the parent).
 			Rigidbody2D rb = en.GetComponent<Rigidbody2D>();
-			if(rb != null && rb.tag == "Enemy")
+			if(rb != null && (rb.tag == "Enemy" || rb.tag == "Alien"))
 			{
 				// Find the Enemy script and set the enemy's health to zero.
 				rb.gameObject.GetComponent<Enemy>().HP = 0;
@@ -73,7 +86,7 @@ public class Bomb : MonoBehaviour
 				Vector3 deltaPos = rb.transform.position - transform.position;
 
 				// Apply a force in this direction with a magnitude of bombForce.
-				Vector3 force = deltaPos.normalized * bombForce;
+				Vector3 force = deltaPos.normalized * bombForce* forceMultiplikator;
 				rb.AddForce(force);
 			}
 		}
@@ -82,11 +95,14 @@ public class Bomb : MonoBehaviour
 		explosionFX.transform.position = transform.position;
 		explosionFX.Play();
 
-		// Instantiate the explosion prefab.
-		Instantiate(explosion,transform.position, Quaternion.identity);
+		// Instantiate the explosion prefab.and scale if superpower
+		GameObject explosionGameObject = Instantiate(explosion,transform.position, Quaternion.identity);
+		Vector3 explosionLocalScale = explosionGameObject.transform.localScale;
+		explosionLocalScale *= forceMultiplikator;
+        explosionGameObject.transform.localScale = explosionLocalScale;
 
-		// Play the explosion sound effect.
-		AudioSource.PlayClipAtPoint(boom, transform.position);
+        // Play the explosion sound effect.
+        AudioSource.PlayClipAtPoint(boom, transform.position);
 
 		// Destroy the bomb.
 		Destroy (gameObject);

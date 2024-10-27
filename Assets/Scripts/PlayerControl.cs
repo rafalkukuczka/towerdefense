@@ -20,6 +20,7 @@ public class PlayerControl : MonoBehaviour
 
     public float moveForce = 365f;			// Amount of force added to move the player left and right.
 	public float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
+    public float speedMultiplikator = 1;
 	public AudioClip[] jumpClips;			// Array of clips for when the player jumps.
 	public float jumpForce = 1000f;			// Amount of force added when the player jumps.
 	public AudioClip[] taunts;				// Array of clips for when the player taunts.
@@ -56,8 +57,6 @@ public class PlayerControl : MonoBehaviour
 		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
         // If the jump button is pressed and the player is grounded then the player should jump.
-
-
         //RK New input
         //if(Input.GetButtonDown("Jump") && grounded)
         //RK +two times jumping
@@ -88,7 +87,7 @@ public class PlayerControl : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		//RK TODO Investigate below
+        //RK TODO Investigate below
         // Cache the horizontal input.
         //float h = Input.GetAxis("Horizontal");
         //var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -97,6 +96,17 @@ public class PlayerControl : MonoBehaviour
         //    h = -1;
         //else
         //    h = 1;
+
+        // If extra power is switched on then double maximum speed
+        if (GameData.ExtraSpeedTimeout > 0)
+        {
+            speedMultiplikator = 3;
+            Debug.Log("-->--> adding extra speed...");
+        }
+        else
+        {
+            speedMultiplikator = 1;
+        }
 
         //RK New Input
         Vector2 movement = playerInput.Player.Move.ReadValue<Vector2>();
@@ -114,7 +124,7 @@ public class PlayerControl : MonoBehaviour
 		// If the player's horizontal velocity is greater than the maxSpeed...
 		if(Mathf.Abs(rigidBody2D.velocity.x) > maxSpeed)
 			// ... set the player's velocity to the maxSpeed in the x axis.
-			rigidBody2D.velocity = new Vector2(Mathf.Sign(rigidBody2D.velocity.x) * maxSpeed, rigidBody2D.velocity.y);
+			rigidBody2D.velocity = new Vector2(Mathf.Sign(rigidBody2D.velocity.x) * maxSpeed*speedMultiplikator, rigidBody2D.velocity.y);
 
 		// If the input is moving the player right and the player is facing left...
 		if(h > 0 && !facingRight)

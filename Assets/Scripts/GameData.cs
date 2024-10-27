@@ -17,8 +17,8 @@ public class GameData : MonoBehaviour
         public static int InitialTotalPayments = 0;
         public static int InitialExtraSpeed = 10;
         public static int InitialExtraForce = 10;
-        internal static int ExtraForceTimeout = 12;
-        internal static int ExtraSpeedTimeout = 10;
+        internal static int ExtraForceTimeout = 30; //12
+        internal static int ExtraSpeedTimeout = 30; //10
 
         public static int InitialScore = 9000;
         
