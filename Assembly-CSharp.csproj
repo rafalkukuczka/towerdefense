@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Pauser.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\SetParticleSortingLayer.cs" />
+    <Compile Include="Assets\Scripts\ForceHUDController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
