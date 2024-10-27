@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     BombHUDController _bombHUDController;
     RocketHUDController _rocketHUDController;
     ForceHUDController _forceHUDController;
+    SpeedHUDController _speedHUDController;
     private bool extraForceTimerStarted;
     private bool extraSpeedTimerStarted;
 
@@ -25,6 +26,8 @@ public class GameController : MonoBehaviour
         _rocketHUDController = GameObject.Find("ui_rocketHUD").GetComponent<RocketHUDController>();
 
         _forceHUDController = GameObject.Find("ui_forceHUD").GetComponent<ForceHUDController>();
+
+        _speedHUDController = GameObject.Find("ui_speedHUD").GetComponent<SpeedHUDController>();
 
 
 
@@ -50,6 +53,9 @@ public class GameController : MonoBehaviour
 
         _forceHUDController.Text = GameData.ExtraForceTimeout.ToString();
         _forceHUDController.Visible = GameData.ExtraForceTimeout > 0;
+
+        _speedHUDController.Text = GameData.ExtraSpeedTimeout.ToString();
+        _speedHUDController.Visible = GameData.ExtraSpeedTimeout > 0;
 
         if (GameData.ExtraForceTimeout != 0 && !extraForceTimerStarted)
         {

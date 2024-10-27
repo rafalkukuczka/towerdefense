@@ -10,14 +10,15 @@ using UnityEngine.SocialPlatforms.Impl;
 public class GameData : MonoBehaviour
 {
     public static class Const {
+
         public static int RocketsInCrate = 24;
         public static int InitialNumberOfRockets = 12;
         public static int InitialNumberOfBombs = 0;
         public static int InitialTotalPayments = 0;
         public static int InitialExtraSpeed = 10;
         public static int InitialExtraForce = 10;
-        internal static int ExtraForceTimeout = 10;
-        internal static int ExtraSpeedTimeout = 12;
+        internal static int ExtraForceTimeout = 12;
+        internal static int ExtraSpeedTimeout = 10;
 
         public static int InitialScore = 9000;
         
@@ -139,8 +140,8 @@ public class GameData : MonoBehaviour
     {
         GameData.CurrentNumberOfRockets = GameData.Const.InitialNumberOfRockets;
         GameData.BombCount = GameData.Const.InitialNumberOfBombs;
-        GameData.ExtraForceTimeout = GameData.Const.InitialExtraForce;
-        GameData.ExtraSpeedTimeout = GameData.Const.InitialExtraSpeed;
+        GameData.ExtraForceTimeout = 0;
+        GameData.ExtraSpeedTimeout = 0;
 
         if (updateScore ) {
             GameData.Score = GameData.Score = GameData.Const.InitialScore;
