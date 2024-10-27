@@ -75,28 +75,28 @@ public class GameController : MonoBehaviour
 
     IEnumerator ExtraForceTimer()
     {
-        UnityEngine.Debug.Log("GameController.ExtraForceTimer started...");
+        //UnityEngine.Debug.Log("GameController.ExtraForceTimer started...");
 
         while (GameData.ExtraForceTimeout-- > 0)
         {
-            UnityEngine.Debug.Log("Tick " + GameData.ExtraForceTimeout + " sec");
+            //UnityEngine.Debug.Log("Tick " + GameData.ExtraForceTimeout + " sec");
             yield return new WaitForSeconds(1);
         }
 
-        UnityEngine.Debug.Log("...GameController.ExtraForceTimer ended");
+        //UnityEngine.Debug.Log("...GameController.ExtraForceTimer ended");
     }
 
     IEnumerator ExtraSpeedTimer()
     {
-        UnityEngine.Debug.Log("GameController.ExtraSpeedTimer started...");
+        //UnityEngine.Debug.Log("GameController.ExtraSpeedTimer started...");
 
         while (GameData.ExtraSpeedTimeout-- > 0)
         {
-            UnityEngine.Debug.Log("Tick " + GameData.ExtraSpeedTimeout + " sec");
+            //UnityEngine.Debug.Log("Tick " + GameData.ExtraSpeedTimeout + " sec");
             yield return new WaitForSeconds(1);
         }
 
-        UnityEngine.Debug.Log("...GameController.ExtraSpeedTimer ended");
+        //UnityEngine.Debug.Log("...GameController.ExtraSpeedTimer ended");
     }
 
 }
