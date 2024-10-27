@@ -9,8 +9,10 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     ScoreTextController _scoreTextController;
-    RocketHUDController _rocketHUDController;
+
     BombHUDController _bombHUDController;
+    RocketHUDController _rocketHUDController;
+    ForceHUDController _forceHUDController;
     private bool extraForceTimerStarted;
     private bool extraSpeedTimerStarted;
 
@@ -18,9 +20,13 @@ public class GameController : MonoBehaviour
     {
         _scoreTextController = GameObject.Find("ui_ScoreText").GetComponent<ScoreTextController>();
 
+        _bombHUDController = GameObject.Find("ui_bombHUD").GetComponent<BombHUDController>();
+
         _rocketHUDController = GameObject.Find("ui_rocketHUD").GetComponent<RocketHUDController>();
 
-        _bombHUDController = GameObject.Find("ui_bombHUD").GetComponent<BombHUDController>();
+        _forceHUDController = GameObject.Find("ui_forceHUD").GetComponent<ForceHUDController>();
+
+
 
         //initial
         if (!GameData.WasShoped)
@@ -36,12 +42,14 @@ public class GameController : MonoBehaviour
         //Sync Data with controls
         _scoreTextController.Text = GameData.Score.ToString();
 
-        _rocketHUDController.Text = GameData.CurrentNumberOfRockets.ToString();
-        _rocketHUDController.Visible = GameData.CurrentNumberOfRockets > 0;
-
         _bombHUDController.Text = GameData.BombCount.ToString();
         _bombHUDController.Visible = GameData.BombCount > 0;
 
+        _rocketHUDController.Text = GameData.CurrentNumberOfRockets.ToString();
+        _rocketHUDController.Visible = GameData.CurrentNumberOfRockets > 0;
+
+        _forceHUDController.Text = GameData.ExtraForceTimeout.ToString();
+        _forceHUDController.Visible = GameData.ExtraForceTimeout > 0;
 
         if (GameData.ExtraForceTimeout != 0 && !extraForceTimerStarted)
         {
