@@ -19,7 +19,6 @@ public class ForceHUDController : MonoBehaviour
         _Image = this.transform.GetComponent<Image>();
         _backgroundText = gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         _text = gameObject.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
-
     }
 
     // Update is called once per frame

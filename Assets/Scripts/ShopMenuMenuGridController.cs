@@ -59,9 +59,15 @@ public class ShopMenuMenuGridController : MonoBehaviour
             throw new ArgumentException();
         }
 
-        SceneManager.LoadScene("MainMenu");
+        //RK TODO Remove
+        //SceneManager.LoadScene("MainMenu");
     }
 
+    public void OnMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+        
     // Update is called once per frame
     void Update()
     {
