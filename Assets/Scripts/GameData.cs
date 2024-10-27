@@ -11,22 +11,27 @@ public class GameData : MonoBehaviour
 {
     public static class Const {
 
-        public static int RocketsInCrate = 24;
-        public static int InitialNumberOfRockets = 12;
-        public static int InitialNumberOfBombs = 0;
-        public static int InitialTotalPayments = 0;
-        public static int InitialExtraSpeed = 10;
-        public static int InitialExtraForce = 10;
-        internal static int ExtraForceTimeout = 30; //12
-        internal static int ExtraSpeedTimeout = 30; //10
+        internal static int RocketsInCrate = 24;
+        internal static int InitialNumberOfRockets = 12;
+        internal static int InitialNumberOfBombs = 0;
+        internal static int InitialTotalPayments = 0;
+        internal static int InitialExtraSpeed = 10;
+        internal static int InitialExtraForce = 10;
+        internal static int ForceTimeout = 30; //12
+        internal static int SpeedTimeout = 30; //10
 
-        public static int InitialScore = 9000;
-        
+        internal static int InitialScore = 9000;
+
+        internal static int RocketPrice = 399; //400
+        internal static int BombsPrice = 499;  //500
+        internal static int ForcePrice = 999;  //1000
+        internal static int SpeedPrice = 1999; //2000
     }
 
     static int _score = 0;
     static int _currentNumberOfRockets = 0;
     static int bombCount = 0;
+    
 
     static GameData()
     {
@@ -84,21 +89,21 @@ public class GameData : MonoBehaviour
     #region Shoping Hooks
     public static bool IsRocketBuyItemVisible()
     {
-        return Score > 400;
+        return Score > GameData.Const.RocketPrice;
     }
     public static bool IsBombBuyItemVisible()
     {
-        return Score > 500;
+        return Score > GameData.Const.BombsPrice;
     }
 
     public static bool IsForceBuytemVisible()
     {
-        return Score > 1000;
+        return Score > GameData.Const.ForcePrice;
     }
 
     internal static bool IsSpeedBuytemVisible()
     {
-        return Score > 2000; //RK TODO Move to const
+        return Score > GameData.Const.SpeedPrice; 
     }
     #endregion
 

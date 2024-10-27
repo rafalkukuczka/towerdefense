@@ -33,25 +33,25 @@ public class ShopMenuMenuGridController : MonoBehaviour
 
         if (itemName == "Rocket")
         {
-            GameData.Score -= 400;
+            GameData.Score -= GameData.Const.RocketPrice;
             GameData.CurrentNumberOfRockets += GameData.Const.RocketsInCrate;
 
         }
         else if (itemName == "Bomb")
         {
-            GameData.Score -= 500;
+            GameData.Score -= GameData.Const.BombsPrice;
             GameData.BombCount += 1;
 
         }
         else if (itemName == "Force")
         {
-            GameData.Score -= 1000;
-            GameData.ExtraForceTimeout += GameData.Const.ExtraForceTimeout;
+            GameData.Score -= GameData.Const.ForcePrice;
+            GameData.ExtraForceTimeout += GameData.Const.ForceTimeout;
         }
         else if (itemName == "Speed")
         {
-            GameData.Score -= 2000;
-            GameData.ExtraSpeedTimeout += GameData.Const.ExtraSpeedTimeout; 
+            GameData.Score -= GameData.Const.SpeedPrice;
+            GameData.ExtraSpeedTimeout += GameData.Const.SpeedTimeout; 
         }
         
         else
