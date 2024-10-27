@@ -18,7 +18,7 @@ public class Rocket : MonoBehaviour
         if (GameData.ExtraForceTimeout > 0)
         {
             forceMultiplikator = 3;
-            Debug.Log("-->--> adding extra force...");
+            //Debug.Log("-->--> adding extra force...");
         }
         else
         {

@@ -29,10 +29,9 @@ public class BuyItemController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        _image = this.gameObject.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>();
 
-        _textBox = this.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-
-        _image = this.gameObject.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>();
+        _textBox = this.gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
 
         _button = this.gameObject.transform.GetComponent<Button>();
 
@@ -41,15 +40,20 @@ public class BuyItemController : MonoBehaviour
         _image.sprite = ButtonSprite;
     }
 
+    private void Update()
+    {
+        _textBox.text = ItemPrice.ToString();
+    }
+
     private void OnValidate()
     {
-        TextMeshProUGUI textBox = this.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-
-        textBox.text = ItemPrice.ToString();
-
-        UnityEngine.UI.Image image = this.gameObject.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>();
+        UnityEngine.UI.Image image = this.gameObject.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>();
 
         image.sprite = ButtonSprite;
+
+        TextMeshProUGUI textBox = this.gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+
+        textBox.text = ItemPrice.ToString();
 
 
     }

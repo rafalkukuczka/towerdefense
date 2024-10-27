@@ -4,11 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
 public class ShopMenuMenuGridController : MonoBehaviour
 {
+    BuyItemController _rocketsBuyItemController;
+    BuyItemController _bombsBuyItemController;
+    BuyItemController _forceBuyItemController;
+    BuyItemController _speedBuyItemController;
+
     // Start is called before the first frame update
     void Start()
     {
+        _rocketsBuyItemController = gameObject.transform.GetChild(0).GetComponent<BuyItemController>();
+        _bombsBuyItemController = gameObject.transform.GetChild(1).GetComponent<BuyItemController>();
+        _forceBuyItemController = gameObject.transform.GetChild(2).GetComponent<BuyItemController>();
+        _speedBuyItemController = gameObject.transform.GetChild(3).GetComponent<BuyItemController>();
+
         //Activate buy items
         SetActive(1, GameData.IsRocketBuyItemVisible());  
 
@@ -28,7 +40,7 @@ public class ShopMenuMenuGridController : MonoBehaviour
 
     public void OnClicked(string itemName)
     {
-        Debug.Log("ShopMenuMenuGridController.OnClicked..." + itemName +"!!!");
+        //Debug.Log("ShopMenuMenuGridController.OnClicked..." + itemName +"!!!");
         GameData.WasShoped=true;
 
         if (itemName == "Rocket")
@@ -59,8 +71,6 @@ public class ShopMenuMenuGridController : MonoBehaviour
             throw new ArgumentException();
         }
 
-        //RK TODO Remove
-        //SceneManager.LoadScene("MainMenu");
     }
 
     public void OnMenu()
@@ -71,6 +81,9 @@ public class ShopMenuMenuGridController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _rocketsBuyItemController.ItemPrice = GameData.Const.RocketPrice; 
+        _bombsBuyItemController.ItemPrice = GameData.Const.BombsPrice; 
+        _forceBuyItemController.ItemPrice = GameData.Const.ForcePrice; 
+        _speedBuyItemController.ItemPrice = GameData.Const.SpeedPrice;
     }
 }

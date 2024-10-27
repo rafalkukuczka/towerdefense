@@ -55,8 +55,8 @@ public class Bomb : MonoBehaviour
         // Switch superpower on :)...
         if (GameData.ExtraForceTimeout > 0)
         {
-            forceMultiplikator = 3;
-            Debug.Log("-->--> adding extra force...");
+            forceMultiplikator = GameData.Const.ForceMultiplikator;
+            //Debug.Log("-->--> adding extra force...");
         }
         else
         {

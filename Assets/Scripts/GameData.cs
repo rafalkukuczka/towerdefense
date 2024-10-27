@@ -11,7 +11,7 @@ public class GameData : MonoBehaviour
 {
     public static class Const {
 
-        internal static int RocketsInCrate = 24;
+        internal static int RocketsInCrate = 12;
         internal static int InitialNumberOfRockets = 12;
         internal static int InitialNumberOfBombs = 0;
         internal static int InitialTotalPayments = 0;
@@ -20,12 +20,14 @@ public class GameData : MonoBehaviour
         internal static int ForceTimeout = 30; //12
         internal static int SpeedTimeout = 30; //10
 
-        internal static int InitialScore = 9000;
+        internal static int InitialScore = 18000;
 
-        internal static int RocketPrice = 399; //400
-        internal static int BombsPrice = 499;  //500
-        internal static int ForcePrice = 999;  //1000
-        internal static int SpeedPrice = 1999; //2000
+        internal static int RocketPrice = 999; //400
+        internal static int BombsPrice = 1999; //500
+        internal static int ForcePrice = 2999; //1000
+        internal static int SpeedPrice = 3999; //2000
+        internal static int ForceMultiplikator = 4;//3
+        internal static float SpeedMultiplikator = 2; //3
     }
 
     static int _score = 0;
