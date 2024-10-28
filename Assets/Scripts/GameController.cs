@@ -20,16 +20,10 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         _scoreTextController = GameObject.Find("ui_ScoreText").GetComponent<ScoreTextController>();
-
         _bombHUDController = GameObject.Find("ui_bombHUD").GetComponent<BombHUDController>();
-
         _rocketHUDController = GameObject.Find("ui_rocketHUD").GetComponent<RocketHUDController>();
-
         _forceHUDController = GameObject.Find("ui_forceHUD").GetComponent<ForceHUDController>();
-
         _speedHUDController = GameObject.Find("ui_speedHUD").GetComponent<SpeedHUDController>();
-
-
 
         //initial
         if (!GameData.WasShoped)
