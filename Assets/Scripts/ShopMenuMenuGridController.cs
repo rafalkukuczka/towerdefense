@@ -20,6 +20,7 @@ public class ShopMenuMenuGridController : MonoBehaviour
     SpeedHUDController _speedHUDController;
     PointsLeftTextController _pointsLeftTextController;
 
+    int _initialScore;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +35,7 @@ public class ShopMenuMenuGridController : MonoBehaviour
         _forceHUDController = GameObject.Find("ui_forceHUD").GetComponent<ForceHUDController>();
         _speedHUDController = GameObject.Find("ui_speedHUD").GetComponent<SpeedHUDController>();
 
-
+        _initialScore = GameData.Score;
 
     }
 
@@ -83,7 +84,14 @@ public class ShopMenuMenuGridController : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
-        
+
+    public void OnReset()
+    {
+        Debug.Log("ShopMenuMenuGridController.OnReset");
+        GameData.Init(true);
+        GameData.Score = _initialScore;
+    }
+
     // Update is called once per frame
     void Update()
     {
