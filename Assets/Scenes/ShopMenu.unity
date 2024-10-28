@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 469314574}
   - component: {fileID: 469314573}
   m_Layer: 0
-  m_Name: ExitButtonText
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1293,7 +1293,7 @@ GameObject:
   - component: {fileID: 1159109044}
   - component: {fileID: 1159109043}
   m_Layer: 0
-  m_Name: ExitButton
+  m_Name: ResetButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1375,9 +1375,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1159109043}
-        m_TargetAssemblyTypeName: GameOverController, Assembly-CSharp
-        m_MethodName: Exit
+      - m_Target: {fileID: 485650019}
+        m_TargetAssemblyTypeName: ShopMenuMenuGridController, Assembly-CSharp
+        m_MethodName: OnReset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1968,7 +1968,7 @@ GameObject:
   - component: {fileID: 2075827067}
   - component: {fileID: 2075827066}
   m_Layer: 0
-  m_Name: ExitButtonText
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2105,7 +2105,7 @@ GameObject:
   - component: {fileID: 2102816724}
   - component: {fileID: 2102816723}
   m_Layer: 0
-  m_Name: ResetButton
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2189,7 +2189,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 485650019}
         m_TargetAssemblyTypeName: ShopMenuMenuGridController, Assembly-CSharp
-        m_MethodName: OnReset
+        m_MethodName: OnMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
