@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +14,12 @@ public class ShopMenuMenuGridController : MonoBehaviour
     BuyItemController _forceBuyItemController;
     BuyItemController _speedBuyItemController;
 
+    BombHUDController _bombHUDController;
+    RocketHUDController _rocketHUDController;
+    ForceHUDController _forceHUDController;
+    SpeedHUDController _speedHUDController;
+    PointsLeftTextController _pointsLeftTextController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,14 +28,13 @@ public class ShopMenuMenuGridController : MonoBehaviour
         _forceBuyItemController = gameObject.transform.GetChild(2).GetComponent<BuyItemController>();
         _speedBuyItemController = gameObject.transform.GetChild(3).GetComponent<BuyItemController>();
 
-        //Activate buy items
-        SetActive(1, GameData.IsRocketBuyItemVisible());  
+        _pointsLeftTextController = GameObject.Find("ui_PointsLeftText").GetComponent<PointsLeftTextController>();
+        _bombHUDController = GameObject.Find("ui_bombHUD").GetComponent<BombHUDController>();
+        _rocketHUDController = GameObject.Find("ui_rocketHUD").GetComponent<RocketHUDController>();
+        _forceHUDController = GameObject.Find("ui_forceHUD").GetComponent<ForceHUDController>();
+        _speedHUDController = GameObject.Find("ui_speedHUD").GetComponent<SpeedHUDController>();
 
-        SetActive(2, GameData.IsBombBuyItemVisible());
 
-        SetActive(3, GameData.IsForceBuytemVisible());
-
-        SetActive(4, GameData.IsSpeedBuytemVisible());
 
     }
 
@@ -81,9 +87,34 @@ public class ShopMenuMenuGridController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Activate buy items
+        SetActive(1, GameData.IsRocketBuyItemVisible());
+
+        SetActive(2, GameData.IsBombBuyItemVisible());
+
+        SetActive(3, GameData.IsForceBuytemVisible());
+
+        SetActive(4, GameData.IsSpeedBuytemVisible());
+
         _rocketsBuyItemController.ItemPrice = GameData.Const.RocketPrice; 
         _bombsBuyItemController.ItemPrice = GameData.Const.BombsPrice; 
         _forceBuyItemController.ItemPrice = GameData.Const.ForcePrice; 
         _speedBuyItemController.ItemPrice = GameData.Const.SpeedPrice;
+
+        _bombHUDController.Text = GameData.BombCount.ToString();
+        _bombHUDController.Visible = GameData.BombCount > 0;
+
+        _rocketHUDController.Text = GameData.CurrentNumberOfRockets.ToString();
+        _rocketHUDController.Visible = GameData.CurrentNumberOfRockets > 0;
+
+        _forceHUDController.Text = GameData.ExtraForceTimeout.ToString();
+        _forceHUDController.Visible = GameData.ExtraForceTimeout > 0;
+
+        _speedHUDController.Text = GameData.ExtraSpeedTimeout.ToString();
+        _speedHUDController.Visible = GameData.ExtraSpeedTimeout > 0;
+
+        _pointsLeftTextController.Text = GameData.Score.ToString();
+
     }
+
 }
