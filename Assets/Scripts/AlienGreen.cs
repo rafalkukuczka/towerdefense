@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy : MonoBehaviour
+public class AlienGreen : MonoBehaviour
 {
 	public float moveSpeed = 2f;		// The speed the enemy moves at.
 	public int HP = 1;					// How many times the enemy can be hit before it dies.
@@ -15,11 +15,12 @@ public class Enemy : MonoBehaviour
 
 	private SpriteRenderer ren;			// Reference to the sprite renderer.
 	private Transform frontCheck;		// Reference to the position of the gameobject used for checking if something is in front.
-	private bool dead = false;			// Whether or not the enemy is dead.
+	private bool dead = false;          // Whether or not the enemy is dead.
 
+	private Animator animator;
 
     //RK Porting private Rigidbody2D rigidbody2D;    // RK Reference to the RigidBody
-    //private new Rigidbody2D rigidbody2D;    // RK Reference to the RigidBody
+    private new Rigidbody2D rigidbody2D;    // RK Reference to the RigidBody
     private int originalHealthPoints;
 
     void Awake()
@@ -27,10 +28,12 @@ public class Enemy : MonoBehaviour
 		// Setting up the references.
 		ren = transform.Find("body").GetComponent<SpriteRenderer>();
 		frontCheck = transform.Find("frontCheck").transform;
-		//RK TODO rigidbody2D = GetComponent<Rigidbody2D>();
+		rigidbody2D = GetComponent<Rigidbody2D>();
+		animator = GetComponent<Animator>();
 
 		originalHealthPoints = HP;
 
+		StartCoroutine(AITimer());
     }
 
 	void FixedUpdate ()
@@ -132,6 +135,29 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
+    }
+
+    IEnumerator AITimer()
+    {
+        UnityEngine.Debug.Log("AlienGreen.AITimer started..." + GetHashCode());
+
+        while (true)
+        {
+            UnityEngine.Debug.Log(GetHashCode()+":Tick ");
+            yield return new WaitForSeconds(1);
+			animator.SetFloat("Speed", 0.2f);
+            yield return new WaitForSeconds(1);
+            animator.SetFloat("Speed", 0.7f);
+            yield return new WaitForSeconds(1);
+            animator.SetFloat("Speed", 0);
+            animator.SetTrigger("Attack");
+            yield return new WaitForSeconds(1);
+			animator.SetTrigger("Fire");
+            yield return new WaitForSeconds(1);
+            Flip();
+        }
+
+        //UnityEngine.Debug.Log("...GameController.ExtraForceTimer ended");
     }
 
 
