@@ -75,14 +75,15 @@ public class AlienGreen : MonoBehaviour
 	
 	void Death()
 	{
+		animator.SetTrigger("Die");
+		//RK dunno why: (there is no die controllers sprite rendered when sprite is not enabled)		
 		// Find all of the sprite renderers on this object and it's children.
-		SpriteRenderer[] otherRenderers = GetComponentsInChildren<SpriteRenderer>();
-
-		// Disable all of them sprite renderers.
-		foreach(SpriteRenderer s in otherRenderers)
-		{
-			s.enabled = false;
-		}
+		//SpriteRenderer[] otherRenderers = GetComponentsInChildren<SpriteRenderer>();
+		//// Disable all of them sprite renderers.
+		//foreach(SpriteRenderer s in otherRenderers)
+		//{
+		//	s.enabled = false;
+		//}
 
 		// Re-enable the main sprite renderer and set it's sprite to the deadEnemy sprite.
 		ren.enabled = true;
