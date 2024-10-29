@@ -36,8 +36,13 @@ public class Rocket : MonoBehaviour
         explosionLocalScale *= forceMultiplikator;
         explosionGameObject.transform.localScale = explosionLocalScale;
     }
-	
-	void OnTriggerEnter2D (Collider2D col) 
+
+    private void Update()
+    {
+        
+    }
+
+    void OnTriggerEnter2D (Collider2D col) 
 	{
 		// If it hits an enemy...
 		if(col.tag == "Enemy")
@@ -70,6 +75,26 @@ public class Rocket : MonoBehaviour
             {
                 // ... find the Enemy script and call the Hurt function.
                 col.gameObject.GetComponent<Alien>().Hurt();
+            }
+
+            // Call the explosion instantiation.
+            OnExplode();
+
+            // Destroy the rocket.
+            Destroy(gameObject);
+        }
+        else // If it hits an enemy...
+        if (col.tag == "AlienGreen")
+        {
+            //RK ... find the Enemy script and call the Hurt function.
+            //col.gameObject.GetComponent<Alien>().Hurt(); int fm = forceMultiplikator;
+
+            // kill enemy more if superpower;
+            int fm = forceMultiplikator;
+            while (fm-- > 0)
+            {
+                // ... find the Enemy script and call the Hurt function.
+                col.gameObject.GetComponent<AlienGreen>().Hurt();
             }
 
             // Call the explosion instantiation.

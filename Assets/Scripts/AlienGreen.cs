@@ -106,7 +106,7 @@ public class AlienGreen : MonoBehaviour
 		}
 
 		// Play a random audioclip from the deathClips array.
-		int i = Random.Range(0, deathClips.Length);
+		int i = Random.Range(0, deathClips.Length);  //RK TODO Exception when no audio clips
 		AudioSource.PlayClipAtPoint(deathClips[i], transform.position);
 
 		// Create a vector that is just above the enemy.
