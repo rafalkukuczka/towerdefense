@@ -10,10 +10,11 @@ public class AlienGreen : MonoBehaviour
 	public AudioClip[] deathClips;		// An array of audioclips that can play when the enemy dies.
 	public GameObject hundredPointsUI;	// A prefab of 100 that appears when the enemy dies.
 	public float deathSpinMin = -100f;			// A value to give the minimum amount of Torque when dying
-	public float deathSpinMax = 100f;			// A value to give the maximum amount of Torque when dying
+	public float deathSpinMax = 100f;           // A value to give the maximum amount of Torque when dying
+	public int _pointScale = 3;
 
 
-	private SpriteRenderer ren;			// Reference to the sprite renderer.
+    private SpriteRenderer ren;			// Reference to the sprite renderer.
 	private Transform frontCheck;		// Reference to the position of the gameobject used for checking if something is in front.
 	private bool dead = false;          // Whether or not the enemy is dead.
 
@@ -125,14 +126,21 @@ public class AlienGreen : MonoBehaviour
         // Create a vector that is just above the enemy.
         Vector3 scorePos;
         scorePos = transform.position;
-        scorePos.y += 1.5f;
+        scorePos.y += 1.5f*_pointScale;
 
 
         // Instantiate the 3x100 points prefab at this point.
         int healthPoints = originalHealthPoints;
         while (healthPoints-- > 0)
         {
-            Instantiate(hundredPointsUI, scorePos, Quaternion.identity);
+            var gameObject = Instantiate(hundredPointsUI, scorePos, Quaternion.identity);
+			
+			//Make hunddredsPoints bigger
+			Vector3 scale = gameObject.transform.localScale;
+			scale.x*= _pointScale;
+			scale.y*= _pointScale;
+            gameObject.transform.localScale = scale;
+
             yield return new WaitForSeconds(0.1f);
         }
 
