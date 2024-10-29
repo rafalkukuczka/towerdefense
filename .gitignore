@@ -67,3 +67,5 @@ Thumbs.db.meta
 
 #mac
 /[Tt]dmac/
+/Assembly-CSharp-Editor.csproj
+/towerdefense.sln
