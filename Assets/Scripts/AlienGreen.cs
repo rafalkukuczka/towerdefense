@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class AlienGreen : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class AlienGreen : MonoBehaviour
 	public float deathSpinMin = -100f;			// A value to give the minimum amount of Torque when dying
 	public float deathSpinMax = 100f;           // A value to give the maximum amount of Torque when dying
 	public int _pointScale = 3;
+	public bool _enableAI = true;
 
 
     private SpriteRenderer ren;			// Reference to the sprite renderer.
@@ -34,7 +36,8 @@ public class AlienGreen : MonoBehaviour
 
 		originalHealthPoints = HP;
 
-		StartCoroutine(AITimer());
+		if (_enableAI)
+			StartCoroutine(AITimer());
     }
 
 	void FixedUpdate ()
@@ -98,7 +101,7 @@ public class AlienGreen : MonoBehaviour
 
 		// Allow the enemy to rotate and spin it by adding a torque.
 		GetComponent<Rigidbody2D>().constraints = new RigidbodyConstraints2D() { };
-        GetComponent<Rigidbody2D>().AddTorque(Random.Range(deathSpinMin,deathSpinMax));
+        GetComponent<Rigidbody2D>().AddTorque(UnityEngine.Random.Range(deathSpinMin,deathSpinMax));
 
 		// Find all of the colliders on the gameobject and set them all to be triggers.
 		Collider2D[] cols = GetComponents<Collider2D>();
@@ -108,7 +111,7 @@ public class AlienGreen : MonoBehaviour
 		}
 
 		// Play a random audioclip from the deathClips array.
-		int i = Random.Range(0, deathClips.Length);  //RK TODO Exception when no audio clips
+		int i = UnityEngine.Random.Range(0, deathClips.Length);  //RK TODO Exception when no audio clips
 		AudioSource.PlayClipAtPoint(deathClips[i], transform.position);
 
 		// Create a vector that is just above the enemy.
@@ -148,17 +151,21 @@ public class AlienGreen : MonoBehaviour
 
     IEnumerator AITimer()
     {
-        UnityEngine.Debug.Log("AlienGreen.AITimer started..." + GetHashCode());
+        //UnityEngine.Debug.Log("AlienGreen.AITimer started..." + GetHashCode());
 
         while (true)
         {
-            UnityEngine.Debug.Log(GetHashCode()+":Tick ");
+            UnityEngine.Debug.Log(GetHashCode()+":Tick...");
             yield return new WaitForSeconds(1);
-			animator.SetFloat("Speed", 0.2f);
+            //UnityEngine.Debug.Log(GetHashCode() + " ForceX:" + rigidbody2D.totalForce.x + " SpeedX:" + rigidbody2D.velocity.x);
+            animator.SetFloat("Speed", Math.Abs(rigidbody2D.velocity.x));
             yield return new WaitForSeconds(1);
-            animator.SetFloat("Speed", 0.7f);
+            //UnityEngine.Debug.Log(GetHashCode() + " ForceX:" + rigidbody2D.totalForce.x + " SpeedX:" + rigidbody2D.velocity.x);
+            animator.SetFloat("Speed", Math.Abs(rigidbody2D.velocity.x));
+            //UnityEngine.Debug.Log(GetHashCode() + " ForceX:" + rigidbody2D.totalForce.x + " SpeedX:" + rigidbody2D.velocity.x);
             yield return new WaitForSeconds(1);
-            animator.SetFloat("Speed", 0);
+            //UnityEngine.Debug.Log(GetHashCode() + " ForceX:" + rigidbody2D.totalForce.x + " SpeedX:" + rigidbody2D.velocity.x);
+            animator.SetFloat("Speed", Math.Abs(rigidbody2D.velocity.x));
             animator.SetTrigger("Attack");
             yield return new WaitForSeconds(1);
 			animator.SetTrigger("Fire");
@@ -172,6 +179,9 @@ public class AlienGreen : MonoBehaviour
 
     public void Flip()
 	{
+		//RK Play Turn clip
+		animator.SetTrigger("Turn");
+
 		// Multiply the x component of localScale by -1.
 		Vector3 enemyScale = transform.localScale;
 		enemyScale.x *= -1;
