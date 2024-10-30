@@ -155,7 +155,7 @@ public class AlienGreen : MonoBehaviour
 
         while (true)
         {
-            UnityEngine.Debug.Log(GetHashCode()+":Tick...");
+            //UnityEngine.Debug.Log(GetHashCode()+":Tick...");
             yield return new WaitForSeconds(1);
             //UnityEngine.Debug.Log(GetHashCode() + " ForceX:" + rigidbody2D.totalForce.x + " SpeedX:" + rigidbody2D.velocity.x);
             animator.SetFloat("Speed", Math.Abs(rigidbody2D.velocity.x));

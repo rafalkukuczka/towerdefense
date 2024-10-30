@@ -97,7 +97,7 @@ public class PlayerControl : MonoBehaviour
         //else
         //    h = 1;
 
-        // If extra power is switched on then double maximum speed
+        //RK If extra power is switched on then double maximum speed
         if (GameData.ExtraSpeedTimeout > 0)
         {
             speedMultiplikator = GameData.Const.SpeedMultiplikator;
