@@ -76,6 +76,10 @@ public class PlayerHealth : MonoBehaviour
 
 	void TakeDamage (Transform enemy)
 	{
+		//RK Load Material example (Assets\Resources\Folder1\rk2_material_rk2shader)
+		//Material newMat = Resources.Load<Material>("Folder1\rk2_material_rk2shader");
+		//transform.Find("body").transform.GetComponent<SpriteRenderer>().material = newMat;
+
 		// Make sure the player can't jump.
 		playerControl.jump100Percents = false;
 

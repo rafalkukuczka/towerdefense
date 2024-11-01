@@ -2795,6 +2795,21 @@ PrefabInstance:
       propertyPath: taunts.Array.data[3]
       value: 
       objectReference: {fileID: 8300000, guid: f00d6706bf8224fe39835855574f94c7, type: 3}
+    - target: {fileID: 250862503409230887, guid: 6aa187bc6339843479c03fdfd71404a3,
+        type: 3}
+      propertyPath: m_Name
+      value: ForceSphere1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049011937502548088, guid: 6aa187bc6339843479c03fdfd71404a3,
+        type: 3}
+      propertyPath: m_Name
+      value: ForceSphere2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049011937502548088, guid: 6aa187bc6339843479c03fdfd71404a3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3298,6 +3313,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 21200008, guid: 708042f972a104a1793983dbefca755f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
