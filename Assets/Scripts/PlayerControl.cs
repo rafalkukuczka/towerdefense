@@ -62,9 +62,9 @@ public class PlayerControl : MonoBehaviour
         //RK +two times jumping
         if (playerInput.Player.Jump.triggered)
         {
-            if (grounded)
+             if (grounded)
             {
-                //Debug.Log("Triggered 100...");
+                Debug.Log("Triggered 100...");
                 jump100Percents = true;
             }
             else 
