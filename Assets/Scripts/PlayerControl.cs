@@ -54,7 +54,7 @@ public class PlayerControl : MonoBehaviour
 	void Update()
 	{
 		// The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
-		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("ground"));
 
         // If the jump button is pressed and the player is grounded then the player should jump.
         //RK New input
@@ -62,9 +62,9 @@ public class PlayerControl : MonoBehaviour
         //RK +two times jumping
         if (playerInput.Player.Jump.triggered)
         {
-            if (grounded)
+             if (grounded)
             {
-                //Debug.Log("Triggered 100...");
+                Debug.Log("Triggered 100...");
                 jump100Percents = true;
             }
             else 
