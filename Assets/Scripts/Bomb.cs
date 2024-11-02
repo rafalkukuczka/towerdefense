@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Interfaces;
 
 public class Bomb : MonoBehaviour
 {
@@ -70,30 +71,19 @@ public class Bomb : MonoBehaviour
 		pickupSpawner.StartCoroutine(pickupSpawner.DeliverPickup());
 
 		// Find all the colliders on the Enemies layer within the bombRadius.
-		Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, bombRadius * forceMultiplikator, 1 << LayerMask.NameToLayer("Enemies"));
+		Collider2D[] enemiesColiders = Physics2D.OverlapCircleAll(transform.position, bombRadius * forceMultiplikator, 1 << LayerMask.NameToLayer("Enemies"));
 
 		// For each collider...
-		foreach(Collider2D en in enemies)
+		foreach(Collider2D enemyCollider in enemiesColiders)
 		{
-			// Check if it has a rigidbody (since there is only one per enemy, on the parent).
-			Rigidbody2D rb = en.GetComponent<Rigidbody2D>();
-			if(rb != null && rb.tag == "Enemy")
-			{
-				// Find the Enemy script and set the enemy's health to zero.
-				rb.gameObject.GetComponent<Enemy>().HP = 0;
-
-				// Find a vector from the bomb to the enemy.
-				Vector3 deltaPos = rb.transform.position - transform.position;
-
-				// Apply a force in this direction with a magnitude of bombForce.
-				Vector3 force = deltaPos.normalized * bombForce* forceMultiplikator;
-				rb.AddForce(force);
-			}
-
-            if (rb != null && rb.tag == "Alien")
+			// RK and kill
+            // Check if it has a rigidbody (since there is only one per enemy, on the parent).
+            Rigidbody2D rb = enemyCollider.GetComponent<Rigidbody2D>();
+			IEnemy enemy = enemyCollider.gameObject.transform.GetComponent<IEnemy>();
+            if (rb != null && enemy != null)
             {
-                // Find the Enemy script and set the enemy's health to zero.
-                rb.gameObject.GetComponent<Alien>().HP = 0;
+				// Find the Enemy script and set the enemy's health to zero.
+				enemy.Kill();
 
                 // Find a vector from the bomb to the enemy.
                 Vector3 deltaPos = rb.transform.position - transform.position;
@@ -102,6 +92,34 @@ public class Bomb : MonoBehaviour
                 Vector3 force = deltaPos.normalized * bombForce * forceMultiplikator;
                 rb.AddForce(force);
             }
+
+   //         // Check if it has a rigidbody (since there is only one per enemy, on the parent).
+   //         Rigidbody2D rb = enemyCollider.GetComponent<Rigidbody2D>();
+			//if(rb != null && rb.tag == "Enemy")
+			//{
+			//	// Find the Enemy script and set the enemy's health to zero.
+			//	rb.gameObject.GetComponent<Enemy>().HP = 0;
+
+			//	// Find a vector from the bomb to the enemy.
+			//	Vector3 deltaPos = rb.transform.position - transform.position;
+
+			//	// Apply a force in this direction with a magnitude of bombForce.
+			//	Vector3 force = deltaPos.normalized * bombForce* forceMultiplikator;
+			//	rb.AddForce(force);
+			//}
+
+   //         if (rb != null && rb.tag == "Alien")
+   //         {
+   //             // Find the Enemy script and set the enemy's health to zero.
+   //             rb.gameObject.GetComponent<Alien>().HP = 0;
+
+   //             // Find a vector from the bomb to the enemy.
+   //             Vector3 deltaPos = rb.transform.position - transform.position;
+
+   //             // Apply a force in this direction with a magnitude of bombForce.
+   //             Vector3 force = deltaPos.normalized * bombForce * forceMultiplikator;
+   //             rb.AddForce(force);
+   //         }
         }
 
 		// Set the explosion effect's position to the bomb's position and play the particle system.

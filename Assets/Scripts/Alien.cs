@@ -154,4 +154,9 @@ public class Alien : MonoBehaviour, IEnemy
     {
 		return Color.yellow;
     }
+
+    public void Kill()
+    {
+		HP = 0;
+    }
 }

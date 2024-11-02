@@ -15,7 +15,7 @@ public class PlayerControl : MonoBehaviour
 	public bool facingRight = true;			// For determining which way the player is currently facing
     [HideInInspector]
     public bool jump100Percents = false;    // Condition for whether the player should jump for first time.
-	private bool jump50Percents = false;    // Condition for whether the player should jump for sec time.
+	public bool jump50Percents = false;    // Condition for whether the player should jump for sec time.
     private int  jumped50PercentTimes = 0;  // How many times jumped, 0 indexed 0==1, 1==2 etc.
 
     public float moveForce = 365f;			// Amount of force added to move the player left and right.

@@ -193,4 +193,9 @@ public class AlienGreen : MonoBehaviour, IEnemy
     {
 		return Color.magenta;
     }
+
+    public void Kill()
+    {
+        HP = 0;
+    }
 }

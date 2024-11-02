@@ -148,4 +148,9 @@ public class Enemy : MonoBehaviour, IEnemy
     {
 		return Color.green;
     }
+
+    public void Kill()
+    {
+        HP = 0;
+    }
 }

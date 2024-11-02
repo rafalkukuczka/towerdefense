@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Interfaces;
 
 public class Rocket : MonoBehaviour 
 {
@@ -37,44 +38,16 @@ public class Rocket : MonoBehaviour
         explosionGameObject.transform.localScale = explosionLocalScale;
     }
 
-    private void Update()
-    {
-        
-    }
-
     void OnTriggerEnter2D (Collider2D col) 
 	{
-		// If it hits an enemy...
-		if(col.tag == "Enemy")
-		{
-            //RK // ... find the Enemy script and call the Hurt function.
-            //col.gameObject.GetComponent<Enemy>().Hurt();
-
-            // kill enemy more if superpower;
-            int fm = forceMultiplikator;
-			while (fm-->0) {
-                // ... find the Enemy script and call the Hurt function.
-                col.gameObject.GetComponent<Enemy>().Hurt();
-            }
-
-			// Call the explosion instantiation.
-			OnExplode();
-
-			// Destroy the rocket.
-			Destroy (gameObject);
-		}
-        else // If it hits an enemy...
-        if (col.tag == "Alien")
+        IEnemy enemy = col.gameObject.transform.GetComponent<IEnemy>();
+        if (enemy != null)
         {
-            //RK ... find the Enemy script and call the Hurt function.
-            //col.gameObject.GetComponent<Alien>().Hurt(); int fm = forceMultiplikator;
-
-            // kill enemy more if superpower;
             int fm = forceMultiplikator;
             while (fm-- > 0)
             {
                 // ... find the Enemy script and call the Hurt function.
-                col.gameObject.GetComponent<Alien>().Hurt();
+                enemy.Hurt();
             }
 
             // Call the explosion instantiation.
@@ -82,46 +55,99 @@ public class Rocket : MonoBehaviour
 
             // Destroy the rocket.
             Destroy(gameObject);
+
+            // If it hits an enemy...
+            //if (col.tag == "Enemy")
+            //{
+            //    int fm = forceMultiplikator;
+            //    while (fm-- > 0)
+            //    {
+            //        // ... find the Enemy script and call the Hurt function.
+            //        col.gameObject.GetComponent<Enemy>().Hurt();
+            //    }
+
+            //    // Call the explosion instantiation.
+            //    OnExplode();
+
+            //    // Destroy the rocket.
+            //    Destroy(gameObject);
+
+            //    //RK // ... find the Enemy script and call the Hurt function.
+            //    //col.gameObject.GetComponent<Enemy>().Hurt();
+
+            //    // kill enemy more if superpower;
+            //    int fm = forceMultiplikator;
+            //    while (fm-- > 0)
+            //    {
+            //        // ... find the Enemy script and call the Hurt function.
+            //        col.gameObject.GetComponent<Enemy>().Hurt();
+            //    }
+
+            //    // Call the explosion instantiation.
+            //    OnExplode();
+
+            //    // Destroy the rocket.
+            //    Destroy(gameObject);
+            //}
+            //else // If it hits an enemy...
+            //if (col.tag == "Alien")
+            //{
+            //    //RK ... find the Enemy script and call the Hurt function.
+            //    //col.gameObject.GetComponent<Alien>().Hurt(); int fm = forceMultiplikator;
+
+            //    // kill enemy more if superpower;
+            //    int fm = forceMultiplikator;
+            //    while (fm-- > 0)
+            //    {
+            //        // ... find the Enemy script and call the Hurt function.
+            //        col.gameObject.GetComponent<Alien>().Hurt();
+            //    }
+
+            //    // Call the explosion instantiation.
+            //    OnExplode();
+
+            //    // Destroy the rocket.
+            //    Destroy(gameObject);
+            //}
+            //else // If it hits an enemy...
+            //if (col.tag == "AlienGreen")
+            //{
+            //    //RK ... find the Enemy script and call the Hurt function.
+            //    //col.gameObject.GetComponent<Alien>().Hurt(); int fm = forceMultiplikator;
+
+            //    // kill enemy more if superpower;
+            //    int fm = forceMultiplikator;
+            //    while (fm-- > 0)
+            //    {
+            //        // ... find the Enemy script and call the Hurt function.
+            //        col.gameObject.GetComponent<AlienGreen>().Hurt();
+            //    }
+
+            //    // Call the explosion instantiation.
+            //    OnExplode();
+
+            //    // Destroy the rocket.
+            //    Destroy(gameObject);
+            //}
         }
-        else // If it hits an enemy...
-        if (col.tag == "AlienGreen")
-        {
-            //RK ... find the Enemy script and call the Hurt function.
-            //col.gameObject.GetComponent<Alien>().Hurt(); int fm = forceMultiplikator;
-
-            // kill enemy more if superpower;
-            int fm = forceMultiplikator;
-            while (fm-- > 0)
-            {
-                // ... find the Enemy script and call the Hurt function.
-                col.gameObject.GetComponent<AlienGreen>().Hurt();
-            }
-
-            // Call the explosion instantiation.
-            OnExplode();
-
-            // Destroy the rocket.
-            Destroy(gameObject);
-        }
-
         // Otherwise if it hits a bomb crate...
-        else if(col.tag == "BombPickup")
-		{
-			// ... find the Bomb script and call the Explode function.
-			col.gameObject.GetComponent<Bomb>().Explode();
+        else if (col.tag == "BombPickup")
+        {
+            // ... find the Bomb script and call the Explode function.
+            col.gameObject.GetComponent<Bomb>().Explode();
 
-			// Destroy the bomb crate.
-			Destroy (col.transform.root.gameObject);
+            // Destroy the bomb crate.
+            Destroy(col.transform.root.gameObject);
 
-			// Destroy the rocket.
-			Destroy (gameObject);
-		}
-		// Otherwise if the player manages to shoot himself...
-		else if(col.gameObject.tag != "Player")
-		{
-			// Instantiate the explosion and destroy the rocket.
-			OnExplode();
-			Destroy (gameObject);
-		}
+            // Destroy the rocket.
+            Destroy(gameObject);
+        }
+        // Otherwise if the player manages to shoot himself...
+        else if (col.gameObject.tag != "Player")
+        {
+            // Instantiate the explosion and destroy the rocket.
+            OnExplode();
+            Destroy(gameObject);
+        }
 	}
 }

@@ -10,5 +10,7 @@ namespace Assets.Scripts.Interfaces
     internal interface IEnemy
     {
         Color GetDamegeColor();
+        void Hurt();
+        void Kill();
     }
 }
