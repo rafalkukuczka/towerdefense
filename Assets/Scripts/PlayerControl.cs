@@ -64,7 +64,7 @@ public class PlayerControl : MonoBehaviour
         {
              if (grounded)
             {
-                Debug.Log("Triggered 100...");
+                //Debug.Log("Triggered 100...");
                 jump100Percents = true;
             }
             else 
