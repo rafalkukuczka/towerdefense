@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Interfaces;
 
 public class PlayerHealth : MonoBehaviour
 {	
@@ -11,8 +12,9 @@ public class PlayerHealth : MonoBehaviour
 
 	private SpriteRenderer healthBar;			// Reference to the sprite renderer of the health bar.
 	private float lastHitTime;					// The time at which the player was last hit.
-	private Vector3 healthScale;				// The local scale of the health bar initially (with full health).
-	private PlayerControl playerControl;		// Reference to the PlayerControl script.
+	private Vector3 healthScale;                // The local scale of the health bar initially (with full health).
+    private Material bodyMaterial;
+    private PlayerControl playerControl;		// Reference to the PlayerControl script.
 	private Animator anim;						// Reference to the Animator on the player
 
 
@@ -25,7 +27,10 @@ public class PlayerHealth : MonoBehaviour
 
 		// Getting the intial scale of the healthbar (whilst the player has full health).
 		healthScale = healthBar.transform.localScale;
-	}
+
+		bodyMaterial = transform.Find("body").transform.GetComponent<SpriteRenderer>().material;
+
+    }
 
 
 	void OnCollisionEnter2D (Collision2D col)
@@ -74,20 +79,23 @@ public class PlayerHealth : MonoBehaviour
 	}
 
 
-	void TakeDamage (Transform enemy)
+	void TakeDamage (Transform enemyTransform)
 	{
         //RK Load Material example (Assets\Resources\Folder1\rk2_material_rk2shader)
         //Material newMat = Resources.Load<Material>("Folder1\rk2_material_rk2shader");
         //transform.Find("body").transform.GetComponent<SpriteRenderer>().material = newMat;
-
-        transform.Find("body").transform.GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.green);
-        transform.Find("body").transform.GetComponent<SpriteRenderer>().material.SetFloat("_Transparency", 0.95f);
+		
+		//RK Change body material depending on Enemy;
+		var enemy = enemyTransform.GetComponent<IEnemy>();
+		Color damageColor = enemy.GetDamegeColor();
+        bodyMaterial.SetColor("_Color", damageColor);
+        bodyMaterial.SetFloat("_Transparency", 0.95f);
 
         // Make sure the player can't jump.
         playerControl.jump100Percents = false;
 
 		// Create a vector that's from the enemy to the player with an upwards boost.
-		Vector3 hurtVector = transform.position - enemy.position + Vector3.up * 5f;
+		Vector3 hurtVector = transform.position - enemyTransform.position + Vector3.up * 5f;
 
 		// Add a force to the player in the direction of the vector and multiply by the hurtForce.
 		//RK rigidbody2D.AddForce(hurtVector * hurtForce);
@@ -96,7 +104,7 @@ public class PlayerHealth : MonoBehaviour
 		health -= damageAmount;
 
 		// Update what the health bar looks like.
-		UpdateHealthBar();
+		UpdateHealthIndicators();
 
 		// Play a random clip of the player getting hurt.
 		int i = Random.Range (0, ouchClips.Length);
@@ -104,12 +112,25 @@ public class PlayerHealth : MonoBehaviour
 	}
 
 
-	public void UpdateHealthBar ()
+	public void UpdateHealthIndicators ()
 	{
-		// Set the health bar's colour to proportion of the way between green and red based on the player's health.
-		healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - health * 0.01f);
+		//RK Body
+		//...if completely healthy
+		if (health == 1)
+		{
+			//...set body to default color
+			bodyMaterial.SetColor("_Color", Color.clear);
+			bodyMaterial.SetFloat("_Transparency", 0);
+		}
+
+
+        //HealthBar
+        // Set the health bar's colour to proportion of the way between green and red based on the player's health.
+        healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - health * 0.01f);
 
 		// Set the scale of the health bar to be proportional to the player's health.
 		healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, 1, 1);
+
+
 	}
 }

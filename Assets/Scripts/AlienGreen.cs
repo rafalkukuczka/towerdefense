@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using Assets.Scripts.Interfaces;
 
-public class AlienGreen : MonoBehaviour
+public class AlienGreen : MonoBehaviour, IEnemy
 {
 	public float moveSpeed = 2f;		// The speed the enemy moves at.
 	public int HP = 1;					// How many times the enemy can be hit before it dies.
@@ -187,4 +188,9 @@ public class AlienGreen : MonoBehaviour
 		enemyScale.x *= -1;
 		transform.localScale = enemyScale;
 	}
+
+    public Color GetDamegeColor()
+    {
+		return Color.magenta;
+    }
 }
