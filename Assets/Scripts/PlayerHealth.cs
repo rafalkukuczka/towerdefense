@@ -76,12 +76,15 @@ public class PlayerHealth : MonoBehaviour
 
 	void TakeDamage (Transform enemy)
 	{
-		//RK Load Material example (Assets\Resources\Folder1\rk2_material_rk2shader)
-		//Material newMat = Resources.Load<Material>("Folder1\rk2_material_rk2shader");
-		//transform.Find("body").transform.GetComponent<SpriteRenderer>().material = newMat;
+        //RK Load Material example (Assets\Resources\Folder1\rk2_material_rk2shader)
+        //Material newMat = Resources.Load<Material>("Folder1\rk2_material_rk2shader");
+        //transform.Find("body").transform.GetComponent<SpriteRenderer>().material = newMat;
 
-		// Make sure the player can't jump.
-		playerControl.jump100Percents = false;
+        transform.Find("body").transform.GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.green);
+        transform.Find("body").transform.GetComponent<SpriteRenderer>().material.SetFloat("_Transparency", 0.95f);
+
+        // Make sure the player can't jump.
+        playerControl.jump100Percents = false;
 
 		// Create a vector that's from the enemy to the player with an upwards boost.
 		Vector3 hurtVector = transform.position - enemy.position + Vector3.up * 5f;
