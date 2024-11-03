@@ -57,7 +57,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: alien_green_idle
+  m_Name: alien_gray_idle 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -74,7 +74,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ea933dc360c594f4da94b234301b2764, type: 2}
+  m_Motion: {fileID: 7400000, guid: afaca1431cceeb148948d9807e053058, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -137,7 +137,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: alien_green_walk
+  m_Name: alien_gray_walk 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -155,7 +155,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c64d604cd5e2f1745b30d9891132a468, type: 2}
+  m_Motion: {fileID: 7400000, guid: 20c742e6d09046440be057e95c5ec87e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -265,7 +265,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: alien_green_attack
+  m_Name: alien_gray_attack 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -279,7 +279,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8401e8be0441bfd42aba40c80f6463ec, type: 2}
+  m_Motion: {fileID: 7400000, guid: 369a8a4d24656b84e9ae09d3b359551a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -292,7 +292,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: alien_green_turn
+  m_Name: alien_gray_turn 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -306,7 +306,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a9e019847ebb22944beec4e18e178f44, type: 2}
+  m_Motion: {fileID: 7400000, guid: e8c09cd7a63214d4b9436435756d0d4b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -418,7 +418,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: alien_green_dead
+  m_Name: alien_gray_dead 1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -431,7 +431,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7bf42cbaab940774a80c1f2388886cfa, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7769c39f35b38ef47b062164406f91f7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -444,7 +444,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: alien_green_fire
+  m_Name: alien_gray_fire 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -458,7 +458,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: fa4123bd4c9e1d5489b007109eacd490, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9ee698cb358496b4ba6bf976f77b8b6a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -565,7 +565,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: alien_green_run
+  m_Name: alien_gray_run 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -583,7 +583,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ad0d072402cc44b469221473e48e3a43, type: 2}
+  m_Motion: {fileID: 7400000, guid: d661bab6c168ed8498d76fa867a3d0ec, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -762,7 +762,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: alien_green_hurt
+  m_Name: alien_gray_hurt 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -776,7 +776,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 47514c3957db4a147862e41e169e7598, type: 2}
+  m_Motion: {fileID: 7400000, guid: 42b5b28a9b2c2a84e9dca61c6fc85da0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
