@@ -12,6 +12,7 @@ public class GameData : MonoBehaviour
     public static class Const {
 
         internal static int RocketsInCrate = 12;
+        internal static int TimeInTorchCrate = 30;
         internal static int InitialNumberOfRockets = 12;
         internal static int InitialNumberOfBombs = 0;
         internal static int InitialTotalPayments = 0;
@@ -28,6 +29,7 @@ public class GameData : MonoBehaviour
         internal static int SpeedPrice = 3999; //2000
         internal static int ForceMultiplikator = 4;//3
         internal static float SpeedMultiplikator = 2; //3
+       
     }
 
     static int _score = 0;
@@ -86,6 +88,7 @@ public class GameData : MonoBehaviour
 
     public static int ExtraSpeedTimeout { get; internal set; }
     public static int ExtraForceTimeout { get; internal set; }
+    public static int TorchTime { get; internal set; }
 
 
     #region Shoping Hooks

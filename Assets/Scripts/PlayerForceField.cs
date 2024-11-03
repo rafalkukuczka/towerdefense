@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerForceField : MonoBehaviour
 {
-    Transform bodyTransport;
+    Transform bodyTransform;
     Transform forceFieldTransform;
     Transform spheereTransform;
 
@@ -16,8 +16,8 @@ public class PlayerForceField : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bodyTransport = transform.Find("body");
-        forceFieldTransform = bodyTransport.transform.Find("ForceField");
+        bodyTransform = transform.Find("body");
+        forceFieldTransform = bodyTransform.transform.Find("ForceField");
         spheereTransform = forceFieldTransform.transform.Find("Sphere");
 
         sphereMeshRenderer = spheereTransform.GetComponent<MeshRenderer>();
