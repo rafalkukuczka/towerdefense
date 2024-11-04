@@ -15,8 +15,9 @@ public class Gnom : MonoBehaviour, IEnemy
 
 
 	private SpriteRenderer ren;			// Reference to the sprite renderer.
-	private Transform frontCheck;		// Reference to the position of the gameobject used for checking if something is in front.
-	private bool dead = false;			// Whether or not the enemy is dead.
+	private Transform frontCheck;       // Reference to the position of the gameobject used for checking if something is in front.
+    private Animator anim;
+    private bool dead = false;			// Whether or not the enemy is dead.
 
 
     //RK Porting private Rigidbody2D rigidbody2D;    // RK Reference to the RigidBody
@@ -29,6 +30,7 @@ public class Gnom : MonoBehaviour, IEnemy
 		ren = transform.Find("body").GetComponent<SpriteRenderer>();
 		frontCheck = transform.Find("frontCheck").transform;
 		//RK TODO rigidbody2D = GetComponent<Rigidbody2D>();
+		anim = transform.Find("body").GetComponent<Animator>();
 
 		originalHealthPoints = HP;
 
@@ -37,13 +39,13 @@ public class Gnom : MonoBehaviour, IEnemy
 	void FixedUpdate ()
 	{
 		// Create an array of all the colliders in front of the enemy.
-		Collider2D[] frontHits = Physics2D.OverlapPointAll(frontCheck.position, 1);
+		Collider2D[] frontHits = Physics2D.OverlapPointAll(frontCheck.position, (1 << LayerMask.NameToLayer("Ground")) | (1 << LayerMask.NameToLayer("Default")));
 
 		// Check each of the colliders.
 		foreach(Collider2D c in frontHits)
 		{
 			// If any of the colliders is an Obstacle...
-			if(c.tag == "Obstacle")
+			if(c.tag == "Obstacle" || c.tag == "ground")
 			{
 				// ... Flip the enemy and stop checking the other colliders.
 				Flip ();
@@ -51,8 +53,9 @@ public class Gnom : MonoBehaviour, IEnemy
 			}
 		}
 
-		// Set the enemy's velocity to moveSpeed in the x direction.
-		GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x * moveSpeed, GetComponent<Rigidbody2D>().velocity.y);	
+        // Set the enemy's velocity to moveSpeed in the x direction.
+        //RK -1 because the gnom sprite is facing left
+        GetComponent<Rigidbody2D>().velocity = new Vector2(-1*transform.localScale.x * moveSpeed, GetComponent<Rigidbody2D>().velocity.y);	
 
 		// If the enemy has one hit point left and has a damagedEnemy sprite...
 		if(HP == 1 && damagedEnemy != null)
@@ -63,6 +66,8 @@ public class Gnom : MonoBehaviour, IEnemy
 		if(HP <= 0 && !dead)
 			// ... call the death function.
 			Death ();
+
+		anim.SetBool("walk", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) > 0);
 	}
 	
 	public void Hurt()
